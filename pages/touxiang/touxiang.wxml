@@ -1,0 +1,39 @@
+<view class="wrapper _div">
+  <view class="iconfont back" bindtap="back" style="z-index: 100;"></view>
+    <view class="container _div">
+        <image class="page-bg _img" mode="widthFix" src="https://img.huangyuheng.top/api/touxiang/bg_image.jpg"></image>
+        <view class="avatar-container _div" style="{{'margin-top:'+(showHeight+'px')+';'}}" id="avatar-container" style="margin-top: 600rpx;">
+        <!-- 屏蔽上传iocn -->
+            <!-- <block wx:if="{{avatarImage}}">
+                <view class="xiangji-icon _div"><label data-event-opts="{{[['tap',[['chooseImage',['$event']]]]]}}" class="iconfont iconxiangji2 _span" bindtap="__e"></label></view>
+            </block> -->
+            <image class="avatar-img _img" id="avatar-img" src="{{avatarUrl}}"></image>
+            <block wx:if="{{avatarUrl}}">
+                <image class="avatar-frame _img" src="{{frameImage}}"></image>
+            </block>
+            <block wx:if="{{!avatarUrl}}">
+                <view class="empty-avatar-view _div">
+                    <image class="empty-avatar _img" src="/static/image/avatar_empty.svg"></image><button class="cu-btn round action-btn"  bindtap="getUserProfile">获取头像</button>
+                </view>
+            </block>
+            <view data-opts="0" class="prev _p" bindtap="cutover"><label class="iconfont iconqianfanicon _span"></label></view>
+            <view data-opts="1" class="next _p" bindtap="cutover"><label class="iconfont iconhoufanicon _span"></label></view>
+        </view>
+        <view class="_div" ><canvas type="2d" class="canvas" id="canvas"></canvas></view>
+        <view class="panel assets-container _div">
+            <view style="display:flex;" clss="category-list" class="_div">
+                <block wx:for="{{categoryList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+                    <view class="_div"><text class="{{['category ',index===sortIndex?'active':'']}}" data-index="{{index}}" bindtap="changeCategory">{{item}}</text></view>
+                </block>
+            </view>
+            <scroll-view class="assets-scroll-view" scroll-into-view="{{bottomId}}" scrollX="true">
+                <block wx:for="{{assetsList[sortIndex]}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+                    <view class="{{['assets','_div',index===selectIndex&&avatarUrl?'active-border':'']}}" id="{{'img'+index}}">
+                        <image src="{{item}}" data-index="{{index}}" bindtap="changeAsset" class="_img"></image>
+                    </view>
+                </block>
+            </scroll-view>
+        </view>
+        <view class="flex justify-around _div" style="flex-direction: row;"><button class="cu-btn round action-btn" openType="share" id="btn-choose-img" data-event-opts="{{[['tap',[['share',['$event']]]]]}}">分享给朋友</button><button class="cu-btn round action-btn btn-primary" id="btn-save" data-event-opts="{{[['tap',[['draw',['$event']]]]]}}" bindtap="save">保存到相册</button></view>
+    </view>
+</view>

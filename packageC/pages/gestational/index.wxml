@@ -1,0 +1,42 @@
+<view class="bg">
+  <view class="iconfont back" bindtap="back"></view>
+    <view style="height: 100rpx"></view>
+    <picker bindchange="bindDateChange" end="{{endtime}}" fields="day" mode="date" start="{{starttime}}" value="{{date}}">
+        <view class="picker">
+            <text decode="{{true}}"> 输入末次月经:&nbsp; </text>
+            <view class="dateSty">{{date}} <image class="down" src="https://img.huangyuheng.top/api/gjw/pageC/gestational/d2.png"></image>
+            </view>
+        </view>
+    </picker>
+    <button bindtap="clickCau" class="cacuBtn">
+        <text decode="{{true}}">点&nbsp;击&nbsp;计&nbsp;算</text>
+    </button>
+    <view class="table">
+        <view class="tr">
+            <view class="td tabletit">预测结果表</view>
+        </view>
+        <text class="beizhu" decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;由于每位女性月经周期长短不一，所以推测的预产期与实际预产期有1-2周的出入也是正常的。</text>
+        <view class="tr  bg-g">
+            <view class="td">当前日期</view>
+            <view class="tdone">{{nowTime}}</view>
+        </view>
+        <view class="tr  ">
+            <view class="td">预产期</view>
+            <view class="tdone">{{exTime}}</view>
+        </view>
+        <view class="tr  bg-g ">
+            <view class="td">您已怀孕</view>
+            <view class="tdone">{{numsToal}}天<text wx:if="{{isWeekshow}}">({{lastWeek}}周<text>{{lastDay}}天</text>)</text>
+            </view>
+        </view>
+        <view class="tr">
+            <view class="td">距离预产期</view>
+            <view class="tdone">{{lastEx}}天</view>
+        </view>
+    </view>
+    <view style="display: flex;padding-top: 20rpx;">
+        <button bindtap="resetBtn" class="resetbtn" style="width: 40%;">
+            <text decode="{{true}}">重&nbsp;置</text>
+        </button>
+    </view>
+</view>

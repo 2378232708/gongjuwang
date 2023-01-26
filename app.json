@@ -1,0 +1,91 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/tool/tool",
+    "pages/life/life",
+    "pages/my/my",
+    "pages/watermark/watermark",
+    "pages/cuttingNine/cuttingNine",
+    "pages/screenshotConnect/screenshotConnect",
+    "pages/screenshotConnect/showImage",
+    "pages/emoticon/index",
+    "pages/emoticon/generate",
+    "pages/handBarrage/handBarrage",
+    "pages/news/index",
+    "pages/collection/collection",
+    "pages/indexword/index",
+    "pages/wordres/index",
+    "pages/shanguang/shanguang",
+    "pages/guide/guide",
+    "pages/searchGar/searchGar",
+    "pages/daxuexi/daxuexi",
+    "pages/picFormat/picFormat",
+    "pages/feedback/feedback",
+    "pages/touxiang/touxiang",
+    "pages/webview/webview"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f5faff",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom",
+    "backgroundColor": "#f5faff"
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#707070",
+    "selectedColor": "#2E9CFE",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "/images/home.png",
+      "selectedIconPath": "/images/home1.png"
+    },
+     {
+      "pagePath": "pages/life/life",
+      "text": "生活",
+      "iconPath": "/images/life.png",
+      "selectedIconPath": "/images/life1.png"
+    },
+     {
+      "pagePath": "pages/tool/tool",
+      "text": "工具",
+      "iconPath": "/images/tool.png",
+      "selectedIconPath": "/images/tool1.png"
+    },
+     {
+      "pagePath": "pages/my/my",
+      "text": "关于",
+      "iconPath": "/images/about.png",
+      "selectedIconPath": "/images/about1.png"
+    }]
+  },
+  "subPackages": [{
+    "root": "packageC/",
+    "pages": [
+      "pages/mortgage/index",
+      "pages/mortgage/result",
+      "pages/mortgage/monthly",
+      "pages/expiration/index",
+      "pages/gestational/index",
+      "pages/income/index",
+      "pages/income/result",
+      "pages/income/result2",
+      "pages/safe/index",
+      "pages/costs/index",
+      "pages/pension/index",
+      "pages/pension/result",
+      "pages/embryo/index",
+      "pages/embryo/result",
+      "pages/embryo/bmodevalidation/index",
+      "pages/embryo/weightvalidation/index",
+      "pages/date/index",
+      "pages/spirits/index",
+      "pages/relative/index",
+      "pages/compound/index",
+      "pages/compound/result"
+    ]
+  }]
+}

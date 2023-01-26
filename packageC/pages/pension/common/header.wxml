@@ -1,0 +1,5 @@
+<template name="header">
+    <view class="header-bottom-outer" style="padding-top: 40rpx">
+        <view class="header-bottom-inner"></view>
+    </view>
+</template>

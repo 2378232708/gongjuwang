@@ -1,0 +1,259 @@
+<import src="../../components/evaluation-list/index.wxml"></import>
+<view class="page">
+    <view class="flex-box result-mt f30 t-c">
+        <view bindtap="chang_rbt" class="flex result-mt-list" id="cn">
+            <text class="result-mt-text {{rbt=='cn'?'on':''}}">等额本息</text>
+        </view>
+        <view bindtap="chang_rbt" class="flex result-mt-list" id="en">
+            <text class="result-mt-text {{rbt=='en'?'on':''}}">等额本金</text>
+        </view>
+    </view>
+    <view hidden="{{rbt=='cn'?false:true}}">
+        <block wx:if="{{dkt==0}}">
+            <view class="result">
+                <view class="f26 pl40">每月还款（元）</view>
+                <view class="monthly-num pl40">{{sd_result_arr_cn.avg}}</view>
+                <view class="flex-box amount mt20">
+                    <view class="flex pl40 bor-r">
+                        <view class="f26">利息总额（万元）</view>
+                        <view class="f40">{{sd_result_arr_cn.total_lx}}</view>
+                    </view>
+                    <view class="flex pl40">
+                        <view class="f26">还款总额（万元）</view>
+                        <view class="f40">{{sd_result_arr_cn.total}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="flex-box result-dk-sum bor-b">
+                <view class="flex pl40 bor-r">
+                    <view class="f26">贷款金额（万元）</view>
+                    <view class="f40">{{sd_result_arr_cn.total_dk}}</view>
+                </view>
+                <view class="flex pl40">
+                    <view class="f26">贷款期限</view>
+                    <view class="f40">{{sd_result_arr_cn.list.length/12}}年（{{sd_result_arr_cn.list.length}}期）</view>
+                </view>
+            </view>
+        </block>
+        <block wx:elif="{{dkt==1}}">
+            <view class="result">
+                <view class="f26 pl40">每月还款（元）</view>
+                <view class="monthly-num pl40">{{gjj_result_arr_cn.avg}}</view>
+                <view class="flex-box amount mt20">
+                    <view class="flex pl40 bor-r">
+                        <view class="f26">利息总额（万元）</view>
+                        <view class="f40">{{gjj_result_arr_cn.total_lx}}</view>
+                    </view>
+                    <view class="flex pl40">
+                        <view class="f26">还款总额（万元）</view>
+                        <view class="f40">{{gjj_result_arr_cn.total}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="flex-box result-dk-sum bor-b">
+                <view class="flex pl40 bor-r">
+                    <view class="f26">贷款金额（万元）</view>
+                    <view class="f40">{{gjj_result_arr_cn.total_dk}}</view>
+                </view>
+                <view class="flex pl40">
+                    <view class="f26">贷款期限</view>
+                    <view class="f40">{{gjj_result_arr_cn.list.length/12}}年（{{gjj_result_arr_cn.list.length}}期）</view>
+                </view>
+            </view>
+        </block>
+        <block wx:else>
+            <view class="result">
+                <view class="f26 pl40">贷款总额（万元）</view>
+                <view class="monthly-num pl40">{{total.total_dk_cn}}</view>
+                <view class="flex-box amount mt20">
+                    <view class="flex pl40 bor-r">
+                        <view class="f26">利息总额（万元）</view>
+                        <view class="f40">{{total.lx_t_cn}}</view>
+                    </view>
+                    <view class="flex pl40">
+                        <view class="f26">还款总额（万元）</view>
+                        <view class="f40">{{total.total_t_cn}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="hot-city-mt f28">商业贷款</view>
+            <view class="result-dk-sum bor-b">
+                <view class="f26 pl40">每月还款（元）</view>
+                <view class="monthly-num-black pl40">{{sd_result_arr_cn.avg}}</view>
+                <view class="flex-box pt20">
+                    <view class="flex pl40 bor-r">
+                        <view class="f26">贷款金额（万元）</view>
+                        <view class="f40">{{sd_result_arr_cn.total_dk}}</view>
+                    </view>
+                    <view class="flex pl40">
+                        <view class="f26">贷款期限</view>
+                        <view class="f40">{{sd_result_arr_cn.list.length/12}}年（{{sd_result_arr_cn.list.length}}期）</view>
+                    </view>
+                </view>
+                <view class="flex-box mt30">
+                    <view class="flex pl40 bor-r">
+                        <view class="f26">还款总额（万元）</view>
+                        <view class="f40">{{sd_result_arr_cn.total}}</view>
+                    </view>
+                    <view class="flex pl40">
+                        <view class="f26">利息总额（万元）</view>
+                        <view class="f40">{{sd_result_arr_cn.total_lx}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="hot-city-mt f28">公积金贷款</view>
+            <view class="result-dk-sum bor-b">
+                <view class="f26 pl40">每月还款（元）</view>
+                <view class="monthly-num-black pl40">{{gjj_result_arr_cn.avg}}</view>
+                <view class="flex-box pt20">
+                    <view class="flex pl40 bor-r">
+                        <view class="f26">贷款金额（万元）</view>
+                        <view class="f40">{{gjj_result_arr_cn.total_dk}}</view>
+                    </view>
+                    <view class="flex pl40">
+                        <view class="f26">贷款期限</view>
+                        <view class="f40">{{gjj_result_arr_cn.list.length/12}}年（{{gjj_result_arr_cn.list.length}}期）</view>
+                    </view>
+                </view>
+                <view class="flex-box mt30">
+                    <view class="flex pl40 bor-r">
+                        <view class="f26">还款总额（万元）</view>
+                        <view class="f40">{{gjj_result_arr_cn.total}}</view>
+                    </view>
+                    <view class="flex pl40">
+                        <view class="f26">利息总额（万元）</view>
+                        <view class="f40">{{gjj_result_arr_cn.total_lx}}</view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <view hidden="{{rbt=='en'?false:true}}">
+        <block wx:if="{{dkt==0}}">
+            <view class="result">
+                <view class="f26 pl40">首月还款（元）</view>
+                <view class="monthly-num pl40">{{sd_result_arr_en.list[0][2]}}<text class="f24 monthly-decrease pl30">每月递减{{byyue.sd}}元</text>
+                </view>
+                <view class="flex-box amount mt20">
+                    <view class="flex pl40 bor-r">
+                        <view class="f26">利息总额（万元）</view>
+                        <view class="f40">{{sd_result_arr_en.total_lx}}</view>
+                    </view>
+                    <view class="flex pl40">
+                        <view class="f26">还款总额（万元）</view>
+                        <view class="f40">{{sd_result_arr_en.total}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="flex-box result-dk-sum bor-b">
+                <view class="flex pl40 bor-r">
+                    <view class="f26">贷款金额（万元）</view>
+                    <view class="f40">{{sd_result_arr_en.total_dk}}</view>
+                </view>
+                <view class="flex pl40">
+                    <view class="f26">贷款期限</view>
+                    <view class="f40">{{sd_result_arr_en.list.length/12}}年（{{sd_result_arr_en.list.length}}期）</view>
+                </view>
+            </view>
+        </block>
+        <block wx:elif="{{dkt==1}}">
+            <view class="result">
+                <view class="f26 pl40">首月还款（元）</view>
+                <view class="monthly-num pl40">{{gjj_result_arr_en.list[0][2]}}<text class="f24 monthly-decrease pl30">每月递减{{byyue.gjj}}元</text>
+                </view>
+                <view class="flex-box amount mt20">
+                    <view class="flex pl40 bor-r">
+                        <view class="f26">利息总额（万元）</view>
+                        <view class="f40">{{gjj_result_arr_en.total_lx}}</view>
+                    </view>
+                    <view class="flex pl40">
+                        <view class="f26">还款总额（万元）</view>
+                        <view class="f40">{{gjj_result_arr_en.total}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="flex-box result-dk-sum bor-b">
+                <view class="flex pl40 bor-r">
+                    <view class="f26">贷款金额（万元）</view>
+                    <view class="f40">{{gjj_result_arr_en.total_dk}}</view>
+                </view>
+                <view class="flex pl40">
+                    <view class="f26">贷款期限</view>
+                    <view class="f40">{{gjj_result_arr_en.list.length/12}}年（{{gjj_result_arr_en.list.length}}期）</view>
+                </view>
+            </view>
+        </block>
+        <block wx:else>
+            <view class="result">
+                <view class="f26 pl40">贷款总额（万元）</view>
+                <view class="monthly-num pl40">{{total.total_dk_cn}}</view>
+                <view class="flex-box amount mt20">
+                    <view class="flex pl40 bor-r">
+                        <view class="f26">利息总额（万元）</view>
+                        <view class="f40">{{total.lx_t_en}}</view>
+                    </view>
+                    <view class="flex pl40">
+                        <view class="f26">还款总额（万元）</view>
+                        <view class="f40">{{total.total_t_en}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="hot-city-mt f28">商业贷款</view>
+            <view class="result-dk-sum bor-b">
+                <view class="f26 pl40">首月还款（元）</view>
+                <view class="monthly-num-black pl40">{{sd_result_arr_en.list[0][2]}}<text class="f24 gray pl30">每月递减{{byyue.sd}}元</text>
+                </view>
+                <view class="flex-box pt20">
+                    <view class="flex pl40 bor-r">
+                        <view class="f26">贷款金额（万元）</view>
+                        <view class="f40">{{sd_result_arr_en.total_dk}}</view>
+                    </view>
+                    <view class="flex pl40">
+                        <view class="f26">贷款期限</view>
+                        <view class="f40">{{sd_result_arr_en.list.length/12}}年（{{sd_result_arr_en.list.length}}期）</view>
+                    </view>
+                </view>
+                <view class="flex-box mt30">
+                    <view class="flex pl40 bor-r">
+                        <view class="f26">还款总额（万元）</view>
+                        <view class="f40">{{sd_result_arr_en.total}}</view>
+                    </view>
+                    <view class="flex pl40">
+                        <view class="f26">利息总额（万元）</view>
+                        <view class="f40">{{sd_result_arr_en.total_lx}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="hot-city-mt f28">公积金贷款</view>
+            <view class="result-dk-sum bor-b">
+                <view class="f26 pl40">首月还款（元）</view>
+                <view class="monthly-num-black pl40">{{gjj_result_arr_en.list[0][2]}}<text class="f24 gray pl30">每月递减{{byyue.gjj}}元</text>
+                </view>
+                <view class="flex-box pt20">
+                    <view class="flex pl40 bor-r">
+                        <view class="f26">贷款金额（万元）</view>
+                        <view class="f40">{{gjj_result_arr_en.total_dk}}</view>
+                    </view>
+                    <view class="flex pl40">
+                        <view class="f26">贷款期限</view>
+                        <view class="f40">{{gjj_result_arr_en.list.length/12}}年（{{gjj_result_arr_en.list.length}}期）</view>
+                    </view>
+                </view>
+                <view class="flex-box mt30">
+                    <view class="flex pl40 bor-r">
+                        <view class="f26">还款总额（万元）</view>
+                        <view class="f40">{{gjj_result_arr_en.total}}</view>
+                    </view>
+                    <view class="flex pl40">
+                        <view class="f26">利息总额（万元）</view>
+                        <view class="f40">{{gjj_result_arr_en.total_lx}}</view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <view class="f26 gray pl30 pr30 pt20">以上结果仅供参考，请以当地实际情况为准。</view>
+    <view class="btn" style="display: flex;">
+        <navigator class="navgitor-btn" hoverClass="btn-hover" url="monthly?rbt={{rbt}}&dkt={{dkt}}">查看月供详情</navigator>
+    </view>
+</view>

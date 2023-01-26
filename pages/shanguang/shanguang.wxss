@@ -1,0 +1,27 @@
+page {
+    background: #000;
+}
+
+.box {
+    width: 100%;
+    float: left;
+    margin: 60px 0 0;
+}
+
+.a {
+    margin: 50px 25%;
+    background: #fbe04f;
+}
+
+.a,.c {
+    width: 50%;
+    border-radius: 50px;
+}
+
+.c {
+    margin: 90px 25%;
+    background: red;
+    padding: 20px;
+    font-size: 1.5em;
+    color: #fff;
+}

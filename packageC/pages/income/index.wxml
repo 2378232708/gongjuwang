@@ -1,0 +1,162 @@
+<view class="container">
+    <view class="swiper_wrapper">
+        <view class="swiper_tab">
+            <view class="tabs">
+                <view bindtap="changeSwiperCurrent" class="{{swiperCurrent==0?'active':''}}" data-current="0" data-title="工资薪金">工资薪金
+					<text></text>
+                </view>
+                <view bindtap="changeSwiperCurrent" class="{{swiperCurrent==1?'active':''}}" data-current="1" data-title="年终奖">年终奖
+					<text></text>
+                </view>
+                <view bindtap="changeSwiperCurrent" class="{{swiperCurrent==2?'active':''}}" data-current="2" data-title="劳务报酬">劳务报酬
+					<text></text>
+                </view>
+            </view>
+        </view>
+        <swiper bindchange="swiperChange" class="swiper" current="{{swiperCurrent}}" duration="300" style="height:{{heights[swiperCurrent]+20}}px;">
+            <swiper-item>
+                <scroll-view class="getThisHeight">
+                    <view class="cell-group">
+                        <view class="cell-label">
+                            <view class="left">本月工资收入(元)</view>
+                            <view class="right">
+                                <text bindtap="showModal" class="icon"></text>
+                                <picker bindchange="_changeParamsMonth" class="periods" data-name="month" data-type="select" mode="selector" range="{{monthOptions}}" rangeKey="value" value="{{month}}">
+                                    <view class="picker">
+										缴纳期数: {{monthOptions[month].value}}
+									</view>
+                                </picker>
+                            </view>
+                        </view>
+                        <van-field bind:change="myTxt" id="txtIncome" placeholder="请输入税前月工资" placeholderClass="placeholderStyle" type="number" value="{{txtIncome}}"></van-field>
+                        <view class="cell-label">五险一金(元)</view>
+                        <van-field useButtonSlot bind:change="myTxt" id="txtInsure" placeholder="五险一金个人缴纳部分(选填)" placeholderClass="placeholderStyle" type="number" value="{{txtInsure}}">
+                            <van-button plain bind:click="editInsure" class="edit-insure" color="#7232dd" size="small" slot="button" type="primary">修改基数</van-button>
+                        </van-field>
+                        <view class="insure-box" style="display:{{isShowInsureBox}}">
+                            <van-field bind:change="myInsure" id="socialBase" label="社保缴纳基数" placeholder="请输入社保缴纳基数" size="small" value="{{socialBase}}"></van-field>
+                            <van-field bind:change="myInsure" id="socialPec" label="社保缴纳比例" placeholder="请输入社保缴纳比例" rightIcon="https://download.cmge.com/web/percent.png" size="small" value="{{socialPec}}"></van-field>
+                            <van-field bind:change="myInsure" id="fundBase" label="公积金缴纳基数" placeholder="请输入公积金缴纳基数" size="small" value="{{fundBase}}"></van-field>
+                            <van-field bind:change="myInsure" id="fundPec" label="公积金缴纳比例" placeholder="请输入公积金缴纳比例" rightIcon="https://download.cmge.com/web/percent.png" size="small" value="{{fundPec}}"></van-field>
+                        </view>
+                        <view class="cell-label">专项附加扣除(元)</view>
+                        <van-field bind:change="myTxt" id="txtSpecial" placeholder="专项附加扣除金额(选填)" placeholderClass="placeholderStyle" type="number" value="{{txtSpecial}}"></van-field>
+                        <view class="form_item_total" wx:if="{{txtIncome>0}}">
+                            <view>累计收入{{totalTxtIncome}}元</view>
+                            <view>累计五险一金{{totalTxtInsure}}元</view>
+                            <view>累计专项附加扣除{{totalTxtSpecial}}元</view>
+                        </view>
+                        <view class="calculate">
+                            <van-button bind:click="calculate" data-index="1">计算</van-button>
+                        </view>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+            <swiper-item>
+                <scroll-view class="getThisHeight">
+                    <view class="cell-group">
+                        <view class="tabs">
+                            <view class="tabs_body">
+                                <view bindtap="_changeTabIndex" class="{{params1.tabIndex==0?'active':''}}" data-index="0" data-name="tabIndex">正算税后</view>
+                                <view bindtap="_changeTabIndex" class="{{params1.tabIndex==1?'active':''}}" data-index="1" data-name="tabIndex">反推税前</view>
+                            </view>
+                        </view>
+                        <view class="formWrapper">
+                            <form bindsubmit="_formSubmit">
+                                <view class="form_items">
+                                    <view class="form_itme_wrap" wx:for="{{formList1.inputInfos}}" wx:key="inputName">
+                                        <view class="tips {{item.textType=='tipsNoIcon'?'tipsNoIcon':''}}" wx:if="{{item.textType=='tipsNoIcon'}}">{{item.textTitle}}</view>
+                                        <view class="itme_wrap" wx:elif="{{item.textType!='tips'&&item.textType!='defalutParams'}}">
+                                            <view class="form_itme" style="display:{{typeIndex==0&&formList1.calculatorType==8&&item.inputName=='time'||typeIndex==1&&formList1.calculatorType==8&&item.inputName=='cost'?'none':'block'}}">
+                                                <view class="item_lable">
+                                                    <view class="left">{{item.textType=='extraInput'?item.textTitle[params1.tabIndex]:item.textTitle}}</view>
+                                                    <view class="right" wx:if="{{item.tips&&item.tips[0].textTitle}}">
+                                                        <view class="item_tips">{{item.tips&&item.tips[0].textTitle}}</view>
+                                                    </view>
+                                                </view>
+                                                <input bindinput="_changeParams" data-name="{{item.inputName}}" data-type="{{item.textType}}" maxlength="12" placeholder="{{item.placeholder[params1.tabIndex]}}" placeholderClass="input_placeh" type="digit" value="{{params[item.inputName]}}" wx:if="{{item.textType=='extraInput'}}"></input>
+                                                <input bindinput="_changeParams" data-name="{{item.inputName}}" data-type="{{item.textType}}" maxlength="12" placeholder="{{item.placeholder}}" placeholderClass="input_placeh" type="digit" value="{{params[item.inputName]}}" wx:if="{{item.textType=='input'}}"></input>
+                                                <view class="radio" wx:if="{{item.textType=='radio'}}">
+                                                    <view bindtap="_radioChange" class="{{params[item.inputName]==options.value?'active':''}}" data-name="{{item.inputName}}" data-value="{{options.value}}" wx:for="{{item.multioptionsValue}}" wx:for-item="options" wx:key="value">{{options.textName}}</view>
+                                                </view>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                                <view class="cal_type" wx:if="{{formList1.calculatorType==3||formList1.calculatorType==6||formList1.calculatorType==12}}">
+                                    <view class="title">计算方式</view>
+                                    <view class="type">
+                                        <view bindtap="_changeTabIndex" class="{{typeIndex==0?'activity':''}}" data-index="0" data-name="typeIndex">居民预扣预缴</view>
+                                        <view bindtap="_changeTabIndex" class="{{typeIndex==1?'activity':''}}" data-index="1" data-name="typeIndex">非居民扣缴</view>
+                                    </view>
+                                </view>
+                                <view class="opt">
+                                    <view class="calculate">
+                                        <van-button bind:click="calculate1" data-index="1">计算</van-button>
+                                    </view>
+                                    <view class="tips" style="display:{{formList1.calculatorType==3||formList1.calculatorType==6||formList1.calculatorType==12?'block':'none'}}">
+                                        <view>* 居民和非居民的定义？</view>
+                                        <text>在中国境内有住所，或者无住所而一个纳税年度内 在中国境内居住累计满一百八十三天的个人，为居 民个人。居民个人从中国境内和境外取得的所得， 依照本法规定缴纳个人所得税。 在中国境内无住所又不居住，或者无住所而一个 纳税年度内在中国境内居住累计不满一百八十三天 的个人，为非居民个人。非居民个人从中国境内取 得的所得，依照本法规定缴纳个人所得税。</text>
+                                    </view>
+                                </view>
+                            </form>
+                        </view>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+            <swiper-item>
+                <scroll-view class="getThisHeight">
+                    <view class="cell-group">
+                        <view class="tabs">
+                            <view class="tabs_body">
+                                <view bindtap="_changeTabIndex2" class="{{params2.tabIndex==0?'active':''}}" data-index="0" data-name="tabIndex">正算税后</view>
+                                <view bindtap="_changeTabIndex2" class="{{params2.tabIndex==1?'active':''}}" data-index="1" data-name="tabIndex">反推税前</view>
+                            </view>
+                        </view>
+                        <view class="formWrapper">
+                            <form bindsubmit="_formSubmit">
+                                <view class="form_items">
+                                    <view class="form_itme_wrap" wx:for="{{formList2.inputInfos}}" wx:key="inputName">
+                                        <view class="tips {{item.textType=='tipsNoIcon'?'tipsNoIcon':''}}" wx:if="{{item.textType=='tipsNoIcon'}}">{{item.textTitle}}</view>
+                                        <view class="itme_wrap" wx:elif="{{item.textType!='tips'&&item.textType!='defalutParams'}}">
+                                            <view class="form_itme" style="display:{{typeIndex==0&&formList2.calculatorType==8&&item.inputName=='time'||typeIndex==1&&formList2.calculatorType==8&&item.inputName=='cost'?'none':'block'}}">
+                                                <view class="item_lable">
+                                                    <view class="left">{{item.textType=='extraInput'?item.textTitle[params2.tabIndex]:item.textTitle}}</view>
+                                                    <view class="right" wx:if="{{item.tips&&item.tips[0].textTitle}}">
+                                                        <view class="item_tips">{{item.tips&&item.tips[0].textTitle}}</view>
+                                                    </view>
+                                                </view>
+                                                <input bindinput="_changeParams2" data-name="{{item.inputName}}" data-type="{{item.textType}}" maxlength="12" placeholder="{{item.placeholder[params2.tabIndex]}}" placeholderClass="input_placeh" type="digit" value="{{params[item.inputName]}}" wx:if="{{item.textType=='extraInput'}}"></input>
+                                                <input bindinput="_changeParams2" data-name="{{item.inputName}}" data-type="{{item.textType}}" maxlength="12" placeholder="{{item.placeholder}}" placeholderClass="input_placeh" type="digit" value="{{params[item.inputName]}}" wx:if="{{item.textType=='input'}}"></input>
+                                                <view class="radio" wx:if="{{item.textType=='radio'}}">
+                                                    <view bindtap="_radioChange" class="{{params[item.inputName]==options.value?'active':''}}" data-name="{{item.inputName}}" data-value="{{options.value}}" wx:for="{{item.multioptionsValue}}" wx:for-item="options" wx:key="value">{{options.textName}}</view>
+                                                </view>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                                <view class="cal_type" wx:if="{{formList2.calculatorType==3||formList2.calculatorType==6||formList2.calculatorType==12}}">
+                                    <view class="title">计算方式</view>
+                                    <view class="type">
+                                        <view bindtap="_changeTypeTabIndex" class="{{params2.typeIndex==0?'activity':''}}" data-index="0" data-name="typeIndex">居民预扣预缴</view>
+                                        <view bindtap="_changeTypeTabIndex" class="{{params2.typeIndex==1?'activity':''}}" data-index="1" data-name="typeIndex">非居民扣缴</view>
+                                    </view>
+                                </view>
+                                <view class="opt">
+                                    <view class="calculate">
+                                        <van-button bind:click="calculate1" data-index="2">计算</van-button>
+                                    </view>
+                                    <view class="tips" style="display:{{formList2.calculatorType==3||formList2.calculatorType==6||formList2.calculatorType==12?'block':'none'}}">
+                                        <view>* 居民和非居民的定义？</view>
+                                        <text>在中国境内有住所，或者无住所而一个纳税年度内 在中国境内居住累计满一百八十三天的个人，为居 民个人。居民个人从中国境内和境外取得的所得， 依照本法规定缴纳个人所得税。 在中国境内无住所又不居住，或者无住所而一个 纳税年度内在中国境内居住累计不满一百八十三天 的个人，为非居民个人。非居民个人从中国境内取 得的所得，依照本法规定缴纳个人所得税。</text>
+                                    </view>
+                                </view>
+                            </form>
+                        </view>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+        </swiper>
+    </view>
+</view>
+<!-- <van-dialog id="van-dialog"></van-dialog> -->

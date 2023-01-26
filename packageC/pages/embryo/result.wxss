@@ -1,0 +1,125 @@
+.container {
+    padding: 30rpx 30rpx 5rpx;
+    background: #faf6f6;
+}
+
+.result-body .has-background-white {
+    background: #fff;
+}
+
+.result-body .item {
+    margin-bottom: 25rpx;
+}
+
+.has-text-centered,.item .column {
+    text-align: center;
+}
+
+.item .column {
+    flex: 1;
+    padding-bottom: 15rpx;
+}
+
+.weight {
+    color: #9badeb;
+}
+
+.weight .value {
+    font-size: 85rpx;
+}
+
+.compare-bar,.compare-desc {
+    display: flex;
+}
+
+.compare-bar .item,.compare-desc .item {
+    flex: 1;
+    text-align: center;
+    color: #000;
+    font-size: 28rpx;
+}
+
+.compare-bar .item {
+    color: #fff;
+    padding: 5rpx 0;
+}
+
+.compare-bar .low {
+    background: #d81e06;
+}
+
+.compare-bar .normal {
+    background: #4eac46;
+}
+
+.compare-bar .high {
+    background: #f8a306;
+}
+
+.row-header {
+    display: flex;
+    border-bottom: 3rpx solid #faf6f6;
+}
+
+.row-header .column {
+    padding: 15rpx 0;
+}
+
+.row-header text {
+    color: #9badeb;
+    font-weight: 500;
+    font-size: 45rpx;
+}
+
+.row-bottom {
+    border-top: 3rpx solid #faf6f6;
+}
+
+.row-bottom .column {
+    padding: 15rpx;
+}
+
+.tips {
+    color: #000;
+}
+
+.suggestion,.tips {
+    display: block;
+    line-height: 40rpx;
+    text-align: left;
+    font-size: 25rpx;
+}
+
+.suggestion {
+    color: #d81e06;
+}
+
+.validation-button {
+    padding: 0 15rpx;
+}
+
+.validation-button button {
+    color: #ff6173;
+    background: #fff;
+}
+
+.validation-button button:after {
+    border: 1px solid #ff6173;
+}
+
+.validation-values {
+    margin: 0;
+}
+
+.validation-value {
+    padding: 25rpx 0;
+    color: #ff6173;
+    font-weight: 500;
+    font-size: 50rpx;
+    text-align: center;
+}
+
+.validation-tips .suggestion {
+    line-height: 40rpx;
+    font-size: 25rpx;
+}

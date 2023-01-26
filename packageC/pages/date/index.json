@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "日历日期计算器-天数差",
+    "navigationStyle": "default",
+    "usingComponents": {
+        "cu-custom": "/colorui/components/cu-custom"
+    }
+}

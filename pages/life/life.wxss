@@ -1,0 +1,127 @@
+/* 头部 */
+.head {
+  position: relative;
+  padding-top: 150rpx;
+  padding-bottom: 20rpx;
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+}
+
+.slide {
+  margin: 50rpx 0;
+  width: 100%;
+  height: 250rpx;
+  border-radius: 50prx;
+}
+
+.slide image {
+  margin: 0 5%;
+  width: 90%;
+  height: 100%;
+}
+
+/* 导航栏 */
+.nav {
+  width: 90%;
+  display: flex;
+}
+
+.nav>view {
+  width: 20%;
+  font-size: 24rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav image {
+  margin-bottom: 10rpx;
+  width: 90rpx;
+  height: 90rpx;
+}
+
+.sort {
+  margin-top: 50rpx;
+  width: 90%;
+  display: flex;
+}
+
+.sort view {
+  width: 180rpx;
+  text-align: center;
+  font-size: 26rpx;
+  font-weight: 700;
+  color: rgb(73, 73, 73);
+}
+
+.line {
+  position: absolute;
+  left: 99rpx;
+  bottom: 5rpx;
+  width: 50rpx;
+  height: 5rpx;
+  border-radius: 2.5rpx;
+  background-color: rgb(221, 56, 56);
+  transition: all .3s;
+}
+
+/* 头部end */
+.content {
+  margin-top: 30rpx;
+  width: 85%;
+}
+
+.content>view {
+  position: relative;
+  padding: 20rpx;
+  width: 100%;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  border-radius: 15rpx;
+  box-shadow: 0px 1rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.content>view image {
+  width: 95%;
+  height: 300rpx;
+  border-radius: 20rpx;
+}
+
+.item-head {
+  margin: 30rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.item-logo {
+  margin: 0 20rpx;
+  width: 50rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  background-color: #f4be1d;
+  border-radius: 30rpx;
+  color: #fff;
+  font-size: 35rpx;
+}
+
+.item-head text {
+  font-weight: 700;
+}
+
+.item-btn {
+  position: absolute;
+  top: 40rpx;
+  right: 20rpx;
+  width: 160rpx;
+  height: 56rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to right, #eb6c41, #e94d37);
+  border-radius: 28rpx;
+  color: #fff;
+  font-size: 25rpx;
+}

@@ -1,0 +1,56 @@
+<view class="page">
+    <view class="flex-box dk-mt f30 t-c" wx:if="{{dkt==2}}">
+        <view bindtap="switchNav" class="flex dk-mt-list" data-idx="{{idx}}" wx:for="{{navbar}}" wx:for-index="idx">
+            <text class="dk-mt-text {{currentNavbar==idx?'on':''}}">{{item}}</text>
+        </view>
+    </view>
+    <view></view>
+    <view class="flex-box monthly f26 t-c pt30 pb20">
+        <text class="flex">月份</text>
+        <text class="flex">月供总额</text>
+        <text class="flex">月供本金</text>
+        <text class="flex">月供利息</text>
+        <text class="flex">剩余</text>
+    </view>
+    <scroll-view scrollY="true" style="height:{{pageinfo.windowHeight}}px;">
+        <block wx:if="{{dkt==2}}">
+            <view hidden="{{currentNavbar==0?false:true}}">
+                <view class="flex-box f26 t-c pt30 pb20 bor-t" wx:for="{{list_arr3}}">
+                    <text class="flex">{{item[1]}}月</text>
+                    <text class="flex">¥{{item[2]}}</text>
+                    <text class="flex">¥{{item[3]}}</text>
+                    <text class="flex">¥{{item[4]}}</text>
+                    <text class="flex">¥{{item[5]}}</text>
+                </view>
+            </view>
+            <view hidden="{{currentNavbar==1?false:true}}">
+                <view class="flex-box f26 t-c pt30 pb20 bor-t" wx:for="{{list_arr}}">
+                    <text class="flex">{{item[1]}}月</text>
+                    <text class="flex">¥{{item[2]}}</text>
+                    <text class="flex">¥{{item[3]}}</text>
+                    <text class="flex">¥{{item[4]}}</text>
+                    <text class="flex">¥{{item[5]}}</text>
+                </view>
+            </view>
+            <view hidden="{{currentNavbar==2?false:true}}">
+                <view class="flex-box f26 t-c pt30 pb20 bor-t" wx:for="{{list_arr2}}">
+                    <text class="flex">{{item[1]}}月</text>
+                    <text class="flex">¥{{item[2]}}</text>
+                    <text class="flex">¥{{item[3]}}</text>
+                    <text class="flex">¥{{item[4]}}</text>
+                    <text class="flex">¥{{item[5]}}</text>
+                </view>
+            </view>
+        </block>
+        <block wx:else>
+            <view class="flex-box f26 t-c pt30 pb20 bor-t" wx:for="{{list_arr}}">
+                <text class="flex">{{item[1]}}月</text>
+                <text class="flex">¥{{item[2]}}</text>
+                <text class="flex">¥{{item[3]}}</text>
+                <text class="flex">¥{{item[4]}}</text>
+                <text class="flex">¥{{item[5]}}</text>
+            </view>
+        </block>
+    </scroll-view>
+    <view></view>
+</view>

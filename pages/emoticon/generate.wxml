@@ -1,0 +1,10 @@
+<view class="container">
+  <view class="iconfont back" bindtap="back"></view>
+  <view class="board" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;">
+    <canvas type="2d" id="myCanvas" class="myCanvas"></canvas>
+  </view>
+  <view class="btns">
+    <button openType="share">分享给好友</button>
+    <button bind:tap="save">保存表情</button>
+  </view>
+</view>

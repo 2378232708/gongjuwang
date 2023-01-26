@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "计算结果",
+    "navigationStyle": "default",
+    "usingComponents": {
+        "cu-custom": "/colorui/components/cu-custom"
+    }
+}

@@ -1,0 +1,123 @@
+<import src="../../components/evaluation-list/index.wxml"></import>
+<view class="end">{{index==15?params.taxedIncome:params.IncomeAT}}</view>
+<view class="condition  {{showDeductDetails&&'showDetails'}}" wx:if="{{index==15}}">
+    <view class="items">
+        <view class="item">
+            <view class="num tax">{{index==15?params.taxedIncome:params.IncomeAT}}</view>
+            <view class="txt">税后收入(元)</view>
+        </view>
+    </view>
+</view>
+<view class="container">
+    <view class="condition  {{showDeductDetails&&'showDetails'}}" wx:if="{{index==15}}">
+        <view class="items">
+            <view class="item">
+                <view class="txt">本月个税(元)</view>
+                <view class="num">{{params.Tax}}</view>
+            </view>
+            <view class="item">
+                <view class="txt">本月税前(元)</view>
+                <view class="num">{{params.income}}</view>
+            </view>
+            <view bindtap="toggleDeductDetails" class="item">
+                <view class="txt">本月扣除总额(元)</view>
+                <view class="num">{{params.deductionTotal}}
+						<text class="arr"></text>
+                </view>
+            </view>
+        </view>
+        <view class="deductDetails">
+            <view class="deduct">
+                <text>起征点(减除费用)</text>
+                <text>{{params.baseLine}}</text>
+            </view>
+            <view class="deduct">
+                <text>五险一金(个人缴纳部分)</text>
+                <text>{{params.insure}}</text>
+            </view>
+            <view class="deduct">
+                <text>专项附加扣除</text>
+                <text>{{params.special}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="condition" wx:else>
+        <view class="items">
+            <view class="item">
+                <view class="txt">税前收入(元)</view>
+                <view class="num tax">{{params.Income}}</view>
+            </view>
+            <view class="item">
+                <view class="txt">应纳个税(元)</view>
+                <view class="num">{{params.Tax}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="detail">
+        <view class="title">
+            <view></view>计算详情
+		</view>
+        <view class="tips" wx:if="{{index==15}}">
+            <text>{{calculateResultList.formulaTitle}} = </text>
+            <text wx:for="{{calculateResultList.formula.oldFormula}}" wx:key="key">{{item}}</text>
+        </view>
+        <view class="tips" wx:else>
+            <text>个税 = </text>
+            <text>{{calculateResultList.formulaList.newList[0].content}}</text>
+        </view>
+        <view class="list">
+            <view class="lock" style="{{isLock?'filter: blur(3px);-webkit-filter: blur(3px);':''}}">
+                <view class="item">
+                    <view class="txt">{{calculateResultList.formula.oldFormula[0]}}</view>
+                    <view class="num">
+						{{params.condition}}
+					</view>
+                </view>
+                <view class="item">
+                    <view class="txt">税率</view>
+                    <view class="num">x {{params.Rate*100}}%</view>
+                </view>
+                <view class="item">
+                    <view class="txt">速算扣除数</view>
+                    <view class="num">- {{params.Deduct}}</view>
+                </view>
+                <view class="item" wx:if="{{index==15}}">
+                    <view class="txt">累计已缴纳税额</view>
+                    <view class="num">- {{params.paidTax}}</view>
+                </view>
+                <view class="item tax">
+                    <view class="txt">个税</view>
+                    <view class="num">{{params.Tax}}</view>
+                </view>
+            </view>
+            <view class="unlock" wx:if="{{isLock}}">
+                <view>
+                    <button bindtap="unlock" size="default" type="primary">解锁计算详情</button>
+                </view>
+                <view>
+                    <text>提示：前往小程序后返回即可解锁</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="formula" wx:if="{{calculateResultList.formulaListTitle}}">
+        <view class="title">
+            <view></view>{{calculateResultList.formulaTitle}}
+		</view>
+        <view class="formula_list">
+            <view wx:for="{{calculateResultList.formulaList.oldList}}" wx:key="title">
+                <text>{{item.title}}</text>
+                <text>{{item.content}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="tax_rate_table">
+        <view class="title">
+            <view></view>{{calculateResultList.tableTitle}}
+		</view>
+        <image mode="widthFix" src="{{calculateResultList.tableList.oldTable[0]}}"></image>
+        <view class="tips" wx:if="{{calculateResultList.tableTips}}">{{calculateResultList.tableTips}}</view>
+    </view>
+    <view class="end">计算结果仅供参考</view>
+</view>
+<van-dialog id="van-dialog"></van-dialog>

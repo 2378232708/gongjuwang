@@ -1,0 +1,52 @@
+<view class="bg flex life" style="padding: 0;">
+  <!-- 头部 -->
+  <view class="head flex">
+    <swiper class="slide" autoplay="true" circular='true' previous-margin="10rpx" next-margin="10rpx" snap-to-edge="true" easing-function="easeInOutCubic">
+      <swiper-item bindtap="goXcx" data-appid='{{list[0].appid}}' data-path="{{list[0].path}}">
+        <image src="https://img.huangyuheng.top/api/gjw//wm/mtbanner.png"></image>
+      </swiper-item>
+      <swiper-item bindtap="goXcx" data-appid='{{list[1].appid}}' data-path="{{list[1].path}}">
+        <image src="https://img.huangyuheng.top/api/gjw//wm/elmbanner.png"></image>
+      </swiper-item>
+      <swiper-item bindtap="goGzh">
+        <image src="https://img.huangyuheng.top/api/gjw//wm/gzh.png"></image>
+      </swiper-item>
+    </swiper>
+    <view class="nav">
+      <view bindtap="goXcx" data-appid='{{list[4].appid}}' data-path="{{list[4].path}}">
+        <image src="https://img.huangyuheng.top/api/gjw//wm/dyp.png"></image><text>特价影票</text>
+      </view>
+      <view bindtap="goXcx" data-appid='{{list[19].appid}}' data-path="{{list[19].path}}">
+        <image src="https://img.huangyuheng.top/api/gjw//wm/hf.png"></image><text>92折话费</text>
+      </view>
+      <view bindtap="goXcx" data-appid='{{list[10].appid}}' data-path="{{list[10].path}}">
+        <image src="https://img.huangyuheng.top/api/gjw//wm/mt.png"></image><text>周末特价</text>
+      </view>
+      <view bindtap="goXcx" data-appid='{{list[20].appid}}' data-path="{{list[20].path}}">
+        <image src="https://img.huangyuheng.top/api/gjw//wm/elmgs.png"></image><text>饿了么果蔬</text>
+      </view>
+      <view bindtap="goXcx" data-appid='{{list[7].appid}}' data-path="{{list[7].path}}">
+        <image src="https://img.huangyuheng.top/api/gjw//wm/mtsc.png"></image><text>美团商超</text>
+      </view>
+    </view>
+    <view class="sort">
+      <view bindtap="changeIndex" data-index='0'>外卖</view>
+      <view bindtap="changeIndex" data-index='1'>出行</view>
+      <view bindtap="changeIndex" data-index='2'>购物</view>
+      <view bindtap="changeIndex" data-index='3'>本地生活</view>
+    </view>
+    <view class="line" style="transform: translate({{i*169+'rpx'}});"></view>
+  </view>
+  <!-- 头部end -->
+  <!-- 优惠列表 -->
+  <view class="content flex">
+    <view class="flex" bindtap="goXcx" wx:for="{{selectList}}" wx:key="id" data-appid="{{item.appid}}" data-path="{{item.path}}">
+      <view class="item-head">
+        <view class="item-logo iconfont {{sortLogo[i]}}"></view>
+        <text class="iconfont">{{item.name}}</text>
+      </view>
+      <view class="item-btn">点击领取</view>
+      <image src="{{item.img}}" mode="aspectFill"></image>
+    </view>
+  </view>
+</view>

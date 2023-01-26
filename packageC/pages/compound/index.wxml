@@ -1,0 +1,48 @@
+<view class="text-df" style="padding-bottom:280rpx;">
+    <view class="cu-form-group" hidden="{{!(calculationOptions!=2)}}">
+        <view class="title">本金</view>
+        <input bindinput="contentInput" data-type="principal" placeholder="请输入(不填默认0)" type="digit" value="{{principal}}"></input>
+        <picker bindchange="bindExpectInterestUnitChange" range="{{moneyUnitColumns}}">
+            <view class="action">
+                <text>{{moneyUnit}}</text>
+                <text class="cuIcon-triangledownfill"></text>
+            </view>
+        </picker>
+    </view>
+    <view class="cu-form-group" hidden="{{!(calculationOptions!=1)}}">
+        <view class="title">利率</view>
+        <input bindinput="contentInput" data-type="interestRate" placeholder="请输入" type="digit" value="{{interestRate}}"></input>
+        <picker bindchange="bindExpectInterestUnitChange" range="{{interestRateColumns}}">
+            <view class="action">
+                <text>{{'%'+interestRateUnit}}</text>
+                <text class="cuIcon-triangledownfill"></text>
+            </view>
+        </picker>
+    </view>
+    <view class="cu-form-group" hidden="{{!(calculationOptions!=3)}}">
+        <view class="title">期数</view>
+        <input bindinput="contentInput" data-type="time" placeholder="请输入" type="number" value="{{time}}"></input>
+        <picker bindchange="bindFixedTimeUnitChange" range="{{timeColumns}}">
+            <view class="action">
+                <text>{{timeUnit}}</text>
+                <text class="cuIcon-triangledownfill"></text>
+            </view>
+        </picker>
+    </view>
+    <view class="cu-form-group" hidden="{{!(calculationOptions!=3)}}">
+        <view class="title">复利周期</view>
+        <picker bindchange="bindCompoundIntervalUnitChange" range="{{compoundIntervalColumns}}">
+            <view class="action">
+                <text>{{compoundIntervalUnit}}</text>
+                <text class="cuIcon-triangledownfill"></text>
+            </view>
+        </picker>
+    </view>
+    <view class="cu-form-group">
+        <view class="title">每月追加</view>
+        <input bindinput="contentInput" data-type="regdeposit" placeholder="请输入(不填默认0)" type="number" value="{{regdeposit}}"></input>
+    </view>
+    <view class="padding mt-5">
+        <button bindtap="calculation" class="weui-btn" type="primary">开始计算</button>
+    </view>
+</view>

@@ -1,0 +1,64 @@
+<view class="main">
+    <view class="main-page  clearfix">
+        <view bindtap="next_p" class="main-page-l" style="background:#ff686c;border:none;border-radius:8rpx;">上一经期</view>
+        <view bindtap="next_m" class="main-page-r" style="background:#ff686c;border:none;border-radius:8rpx;">下一经期</view>
+    </view>
+    <view style="margin: 10rpx">
+        <view class="main-rl clearfix" style="border-radius:6px;">
+            <view class="container-rl container-rl-riqi clearfix" style="background:#ff686c;border-top-left-radius:6px;border-top-right-radius:6px;">
+                {{riqi}}
+            </view>
+            <view class="container-rl  clearfix">
+                <view class="container-rl-1">日</view>
+                <view class="container-rl-1">一
+                </view>
+                <view class="container-rl-1">二
+                </view>
+                <view class="container-rl-1">三
+                </view>
+                <view class="container-rl-1">四
+                </view>
+                <view class="container-rl-1">五
+                </view>
+                <view class="container-rl-1">六
+                </view>
+            </view>
+            <view class="container-rl  container-rl-list clearfix">
+                <view class="container-rl-td  {{i[1]}} clearfix" wx:for="{{index_rl}}" wx:for-item="i">
+                    <view>{{i[0]}}</view>
+                    <view class="{{i[3]}}">{{i[2]}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="top tishi {{orderInfo.time!=null&&a==0?'':'yc'}}">亲，系统记忆的您的上次月经日期为：{{orderInfo.time}}</view>
+        <view class="top">
+            <view class="tite2">天</view>
+            <view class="tite">请选择平均月经周期：</view>
+            <picker bindchange="bindPickerChange_zhouqi" id="zhouqi" name="zhouqi" range="{{arr_zhouqi}}" value="{{arr_zhouqi[zhouqi]}}">
+                <view class="picker" style="background:#ff686c;border:none;border-radius:8rpx;">
+                    {{arr_zhouqi[zhouqi]}}
+                </view>
+            </picker>
+        </view>
+        <view class="top">
+            <view class="tite2">天</view>
+            <view class="tite">请选择平均行经期：</view>
+            <picker bindchange="bindPickerChange_xingjingqi" id="xingjingqi" name="xingjingqi" range="{{arr_xingjingqi}}" value="{{arr_xingjingqi[xingjingqi]}}">
+                <view class="picker" style="background:#ff686c;border:none;border-radius:8rpx;">
+                    {{arr_xingjingqi[xingjingqi]}}
+                </view>
+            </picker>
+        </view>
+        <view class="top">
+            <view class="tite">请选择上次月经日期：</view>
+            <picker bindchange="bindPickerChange_yuejingriqi" end="2035-01-01" id="yuejingriqi" mode="date" name="yuejingriqi" start="2017-01-01" value="{{yuejingriqi}}">
+                <view class="picker" style="background:#ff686c;border:none;border-radius:8rpx;">
+                    {{yuejingriqi}}
+                </view>
+            </picker>
+        </view>
+        <view class="top" style="display: flex">
+            <button bindtap="bindPickerChange_js" class="form-tj" formType="submit" style="width: 40%;background:#ff686c;border:none;border-radius:8rpx;margin-top:60rpx;" type="primary">开始计算</button>
+        </view>
+    </view>
+</view>

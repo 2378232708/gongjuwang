@@ -1,0 +1,70 @@
+<view class="container">
+  <view class="screen">
+    <view class="tip">{{model}}</view>
+    <view class="input">
+      <text>{{input}}</text>
+    </view>
+    <view class="output">
+      <text>{{output}}</text>
+    </view>
+    <view class="setting">
+      <text>男</text>
+      <switch bindchange="switchChange" color="#e7763e"></switch>
+      <text>女</text>
+    </view>
+  </view>
+  <view class="panel">
+    <view class="row">
+      <view class="col">
+        <view class="row">
+          <button bindtap="bindInput" class="btn-first" data-value="爸爸">父</button>
+        </view>
+        <view class="row">
+          <button bindtap="bindInput" class="btn-first" data-value="哥哥">兄</button>
+        </view>
+        <view class="row">
+          <button bindtap="bindInput" class="btn-first" data-value="弟弟">弟</button>
+        </view>
+        <view class="row">
+          <button bindtap="bindInput" class="btn-first" data-value="儿子">子</button>
+        </view>
+      </view>
+      <view class="col">
+        <view class="row">
+          <button bindtap="bindInput" data-value="妈妈">母</button>
+        </view>
+        <view class="row">
+          <button bindtap="bindInput" data-value="姐姐">姐</button>
+        </view>
+        <view class="row">
+          <button bindtap="bindInput" data-value="妹妹">妹</button>
+        </view>
+        <view class="row">
+          <button bindtap="bindInput" data-value="女儿">女</button>
+        </view>
+      </view>
+      <view class="col">
+        <view class="row">
+          <button bindtap="bindInput" data-value="back">←</button>
+        </view>
+        <view class="row">
+          <button bindtap="bindInput" data-value="老公" disabled="{{sex}}">夫</button>
+        </view>
+        <view class="row row2">
+          <button bindtap="bindInput" class="{{reverse?'btn-active':''}}" data-value="exchange">⇌</button>
+        </view>
+      </view>
+      <view class="col">
+        <view class="row">
+          <button bindtap="bindInput" data-value="reset">AC</button>
+        </view>
+        <view class="row">
+          <button bindtap="bindInput" data-value="老婆" disabled="{{!sex}}">妻</button>
+        </view>
+        <view class="row row2">
+          <button bindtap="bindInput" class="btn-equal" data-value="equal" hoverClass="btn-equal-hover">=</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

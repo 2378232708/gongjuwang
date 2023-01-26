@@ -1,0 +1,44 @@
+page {
+  padding: 0;
+  margin: 0;
+  color: #757575;
+  background-color: #f5faff;
+  width: 100%;
+  height: 100%；;
+}
+
+.tips,
+page {
+  font-size: 30rpx;
+}
+
+.padding {
+  padding: 100rpx 0;
+}
+
+.tips {
+  box-sizing: border-box;
+  background-color: #fb7299;
+  color: #fff;
+  min-height: 100rpx;
+  line-height: 100rpx;
+  padding-left: 30rpx;
+}
+
+.image-box,
+.tips {
+  width: 700rpx;
+  margin: 25rpx;
+  border-radius: 4rpx;
+  box-shadow: 0rpx 0rpx 20rpx rgba(0, 0, 0, .2);
+}
+
+.image-box {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.image {
+  display: block;
+  margin: 0 auto;
+}

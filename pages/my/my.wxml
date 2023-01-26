@@ -1,0 +1,24 @@
+<view class="bg tool">
+  <!-- 小程序信息 -->
+  <view class="info">
+    <image src="../../images/logo.png"></image>
+    <text style="margin-top: 10rpx; font-size: 40rpx; font-weight: 700;">工具王</text>
+    <text style="margin-top: 10rpx; font-size: 30rpx; color:#7F93C1;">version 1.2.0</text>
+  </view>
+  <!-- 选项 -->
+  <view class="option iconfont">
+    <view bindtap="onShareAppMessage">
+    <button open-type="share"></button>
+      <text class="icon-fenxiang">分享给好友</text>
+      <view class="icon-xiangyou1"></view>
+    </view>
+    <view bindtap="goColl">
+      <text class="icon-shoucang">我的收藏</text>
+      <view class="icon-xiangyou1"></view>
+    </view>
+    <view bindtap="gofeedback">
+      <text class="icon-yijianfankui">意见反馈</text>
+      <view class="icon-xiangyou1"></view>
+    </view>
+  </view>
+</view>

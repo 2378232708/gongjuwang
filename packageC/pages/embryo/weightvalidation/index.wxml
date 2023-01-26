@@ -1,0 +1,25 @@
+<view class="container">
+    <view class="result-body">
+        <view class="item has-background-white">
+            <view class="row row-header">
+                <view class="column">
+                    <text class="text">当前胎儿体重约为{{value}}斤</text>
+                </view>
+            </view>
+            <view class="row">
+                <view class="column">
+                    <view class="validation-values">
+                        <view class="row">根据胎儿体重标准值对照表，属于</view>
+                        <view class="row validation-value">
+                            <text>{{message}}</text>
+                        </view>
+                    </view>
+                    <view class="validation-tips">
+                        <text class="suggestion">注意：每个人体质情况不一样，如果计算结果与标准值范围有出入，请咨询医生，让她估算一下胎儿体重，再结合妈妈的身体状况，看看宝宝是否发育正常。</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view style="padding: 40rpx 0rpx"></view>
+</view>

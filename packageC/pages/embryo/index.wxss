@@ -1,0 +1,95 @@
+.container {
+    padding: 70rpx 50rpx 40rpx;
+}
+
+.weeks {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.weeks .tips {
+    font-weight: 500;
+}
+
+.weeks picker {
+    margin-bottom: 10rpx;
+}
+
+.weeks .picker {
+    font-weight: 700;
+    font-size: 50rpx;
+    color: #9badeb;
+}
+
+.weeks .week {
+    background: #9badeb;
+    padding: 0 15rpx;
+    color: #fff;
+    border-radius: 20rpx;
+}
+
+.baby-weight {
+    padding: 25rpx;
+}
+
+.form-group.field {
+    margin-bottom: 20rpx;
+}
+
+.form-group .label {
+    width: 250rpx;
+}
+
+.form-group input {
+    width: 323rpx;
+}
+
+.form-group .refer {
+    font-size: 30rpx;
+    font-weight: 500;
+    padding: 10rpx 0;
+    color: #9badeb;
+}
+
+.tips {
+    color: #d81e06;
+    margin-bottom: 0;
+    font-size: 28rpx;
+}
+
+.form-group.tips button {
+    background: #fff;
+    color: #9badeb;
+    border: 3rpx solid #f5f3f4;
+}
+
+.form-group.tips button::after {
+    border: none;
+}
+
+.btn-area {
+    margin: 30rpx 0;
+}
+
+.input {
+    display: flex;
+}
+
+.label {
+    font-weight: 700;
+}
+
+.input_c,.label {
+    font-size: 40rpx;
+}
+
+.input_c,.placeholder {
+    color: #ff6173;
+}
+
+.m-button {
+    background-color: #9badeb;
+    border: 1px #9badeb;
+    color: #fff;
+}

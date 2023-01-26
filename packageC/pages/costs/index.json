@@ -1,0 +1,8 @@
+{
+    "navigationBarBackgroundColor": "#219ff0",
+    "navigationBarTitleText": "诉讼费计算",
+    "navigationStyle": "default",
+    "usingComponents": {
+        "cu-custom": "/colorui/components/cu-custom"
+    }
+}

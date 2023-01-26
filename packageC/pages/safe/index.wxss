@@ -1,0 +1,155 @@
+.main-page {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 8rpx;
+    color: #fff;
+    font-size: 32rpx;
+}
+
+.main-page .main-page-l {
+    float: left;
+}
+
+.main-page .main-page-l,.main-page .main-page-r {
+    border-radius: 5px 5px 5px 5px;
+    background-color: coral;
+    width: 180rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    margin: 10rpx;
+}
+
+.main-page .main-page-r {
+    float: right;
+}
+
+.main-rl {
+    width: 100%;
+    border: 1px solid #cacaca;
+    margin-bottom: 20rpx;
+}
+
+.main .top {
+    font-size: 30rpx;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.main .top .tite {
+    height: 40rpx;
+    line-height: 52rpx;
+    width: 300rpx;
+    float: left;
+}
+
+.main .top .tite2 {
+    height: 40rpx;
+    line-height: 52rpx;
+    width: 44rpx;
+    float: right;
+    text-align: center;
+}
+
+.main .top .picker,.main .top input {
+    width: auto;
+    margin-left: 300rpx;
+    margin-right: 44rpx;
+    border: 1px solid #666;
+    line-height: 40rpx;
+    padding-left: 5px;
+    height: 40rpx;
+    background-image: url("data:image/gif;base64,R0lGODlhCwAGAJEAAP8AAP////+/v/8/PyH5BAAHAP8ALAAAAAALAAYAAAIRHA4Tu4IgGDNJMgftVLpFXQAAOw==");
+    background-repeat: no-repeat;
+    background-position: 100%;
+}
+
+.main .top .picker {
+    height: 50rpx;
+    line-height: 50rpx;
+}
+
+.container-rl {
+    width: 100%;
+    overflow: hidden;
+}
+
+.container-rl .container-rl-1 {
+    width: 14.286%;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    float: left;
+    background-color: #e8e8e8;
+}
+
+.container-rl .container-rl-tr {
+    width: 100%;
+}
+
+.container-rl .container-rl-td {
+    width: 14.28%;
+    text-align: center;
+    float: left;
+    margin-bottom: 20rpx;
+}
+
+.container-rl .container-rl-td .m-1 {
+    width: 100%;
+    height: auto;
+}
+
+.container-rl-riqi {
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    color: #fff;
+    font-size: 30rpx;
+    background-color: #00ca00;
+}
+
+.container-rl-list {
+    width: 100%;
+    overflow: hidden;
+    padding-top: 30rpx;
+}
+
+.rlbg-yjq {
+    color: #000;
+}
+
+.rlbg-syq {
+    color: red;
+}
+
+.rlbg-aqq {
+    color: green;
+}
+
+.form-tj {
+    margin-top: 10rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+}
+
+.ft {
+    font-size: 20rpx;
+}
+
+.fb {
+    display: none;
+}
+
+.tishi {
+    color: red;
+    font-size: 24rpx;
+}
+
+.yc {
+    display: none;
+}
+
+.rlbg-plq {
+    color: #f0f;
+}

@@ -1,0 +1,136 @@
+<view class="data-v-7c8cb154" hidden="{{showDetails}}">
+    <view class="flex flex-column justify-around padding-30 result data-v-7c8cb154">
+        <view class="flex data-v-7c8cb154" style="font-size:48rpx;font-weight:bold;">{{screenstr}}</view>
+        <view class="flex data-v-7c8cb154">{{screenstr=='血气分析'?screendes:' '}}</view>
+    </view>
+    <form bindsubmit="calcABG" class="data-v-7c8cb154">
+        <view class="cu-list grid col-3 no-border data-v-7c8cb154">
+            <view class="cu-item data-v-7c8cb154">
+                <view class="data-v-7c8cb154">PH</view>
+                <view class="cu-form-group data-v-7c8cb154">
+                    <input bindinput="dataInput" class="data-v-7c8cb154" name="ph" placeholder="请输入" type="digit" value="{{ph}}"></input>
+                    <view class="cu-capsule radius data-v-7c8cb154">
+                        <view class="line-blue data-v-7c8cb154"></view>
+                    </view>
+                </view>
+            </view>
+            <view class="cu-item data-v-7c8cb154">
+                <view class="data-v-7c8cb154">PCO<view class="sub data-v-7c8cb154">2</view>
+                </view>
+                <view class="cu-form-group data-v-7c8cb154">
+                    <input bindinput="dataInput" class="data-v-7c8cb154" name="pao2" placeholder="请输入" type="digit" value="{{pco2}}"></input>
+                    <view class="cu-capsule radius data-v-7c8cb154">
+                        <view class="line-blue data-v-7c8cb154">mmHg</view>
+                    </view>
+                </view>
+            </view>
+            <view class="cu-item data-v-7c8cb154">
+                <view class="data-v-7c8cb154">HCO<view class="sub data-v-7c8cb154">3</view>
+                </view>
+                <view class="cu-form-group data-v-7c8cb154">
+                    <input bindinput="dataInput" class="data-v-7c8cb154" name="paco2" placeholder="请输入" type="digit" value="{{hco3}}"></input>
+                    <view class="cu-capsule radius data-v-7c8cb154">
+                        <view class="line-blue data-v-7c8cb154">mmol/l</view>
+                    </view>
+                </view>
+            </view>
+            <view class="cu-item data-v-7c8cb154">
+                <view class="data-v-7c8cb154">Na<view class="sup data-v-7c8cb154">+</view>
+                </view>
+                <view class="cu-form-group data-v-7c8cb154">
+                    <input bindinput="dataInput" class="data-v-7c8cb154" name="na" placeholder="请输入" type="digit" value="{{na}}"></input>
+                    <view class="cu-capsule radius data-v-7c8cb154">
+                        <view class="line-blue data-v-7c8cb154">g/L</view>
+                    </view>
+                </view>
+            </view>
+            <view class="cu-item data-v-7c8cb154">
+                <view class="data-v-7c8cb154">Cl<view class="sup data-v-7c8cb154">-</view>
+                </view>
+                <view class="cu-form-group data-v-7c8cb154">
+                    <input bindinput="dataInput" class="data-v-7c8cb154" name="k" placeholder="请输入" type="digit" value="{{cl}}"></input>
+                    <view class="cu-capsule radius data-v-7c8cb154">
+                        <view class="line-blue data-v-7c8cb154">mmol/l</view>
+                    </view>
+                </view>
+            </view>
+            <view class="cu-item data-v-7c8cb154">
+                <view class="data-v-7c8cb154">Alb
+                </view>
+                <view class="cu-form-group data-v-7c8cb154">
+                    <input bindinput="dataInput" class="data-v-7c8cb154" name="na" placeholder="请输入" type="digit" value="{{alb}}"></input>
+                    <view class="cu-capsule radius data-v-7c8cb154">
+                        <view class="line-blue data-v-7c8cb154">g/L</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="radioInput">
+            <label class="leftText">呼吸系统疾病病程: </label>
+            <view class="groupBtn">
+                <view bindtap="tog_acuteResdiease" class="{{acuteResdiease?'btnSelected':'btnnotSelected'}}">急性</view>
+                <view bindtap="tog_acuteResdiease" class="{{acuteResdiease?'btnnotSelected':'btnSelected'}}">慢性</view>
+            </view>
+        </view>
+        <view class="b1-padding flex flex-direction data-v-7c8cb154">
+            <button class="cu-btn lg publish-btn data-v-7c8cb154" formType="submit">直接报告</button>
+        </view>
+        <view class="b2-padding flex flex-direction data-v-7c8cb153">
+            <button bindtap="detailABG" class="cu-btn lg publish-btn data-v-7c8cb153">详细分析</button>
+        </view>
+        <view class="b3-padding flex flex-direction data-v-7c8cb152">
+            <button class="cu-btn lg publish-btn data-v-7c8cb152" formType="reset">重置</button>
+        </view>
+    </form>
+</view>
+<view class="zan-dialog" hidden="{{!showDetails}}">
+    <view class="zan-dialog__mask">
+        <view class="zan-dialog__container2">
+            <view class="detailView">
+                <view class="upDetails">
+                    <view class="weui-grids">
+                        <view class="weui-grid">
+                            <view class="weui-grid__label">PH:{{ph}}</view>
+                        </view>
+                        <view class="weui-grid">
+                            <view class="weui-grid__label">PCO2:{{pco2}}</view>
+                        </view>
+                        <view class="weui-grid">
+                            <view class="weui-grid__label">HCO3-:{{hco3}}</view>
+                        </view>
+                        <view class="weui-grid">
+                            <view class="weui-grid__label">Na+:{{na}}</view>
+                        </view>
+                        <view class="weui-grid">
+                            <view class="weui-grid__label">Cl-:{{cl}}</view>
+                        </view>
+                        <view class="weui-grid">
+                            <view class="weui-grid__label">Alb:{{alb}}</view>
+                        </view>
+                    </view>
+                </view>
+                <scroll-view class="calcDetails" scrollIntoView="{{scrollTop}}" scrollY="true">
+                    <view id="scrollTop"></view>
+                    <block wx:if="{{tipStrItem.length!=0}}" wx:for="{{tipStr2}}" wx:for-item="tipStrItem">
+                        <view class="weui_cells_title">
+                            {{bzStr[index]}}
+                        </view>
+                        <view class="weui-cells weui-cells_after-title">
+                            <view class="weui-cell" wx:for="{{tipStrItem}}" wx:for-item="tipStrContent">
+                                <label class="weui_label">{{tipStrContent}}</label>
+                            </view>
+                        </view>
+                    </block>
+                    <view class="weui_cells_title">
+                        最终结果：
+                    </view>
+                    <view class="weui-cells weui-cells_after-title">
+                        <view class="weui-cell">
+                            <label class="weui_label">{{screenstr}}</label>
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,11 @@
+<view class="images bg">
+    <view bindtap="changePreview" class="preview-image" data-src="{{item.url}}" style="background-image:url({{item.url}});background-repeat:no-repeat;background-size:100% auto;" wx:for="{{imageInfo}}" wx:key="item">
+        <view catchtap="removeImage" class="remove iconfont icon-shanchu" data-index="{{index}}"></view>
+    </view>
+    <view bindtap="previewImage" class="select-image iconfont icon-tianjia-" hoverClass="select-image-hover"></view>
+    <view class="bottom-tab">
+        <view bindtap="goToPage" class="tabBtn" data-direction="horizontal">横向拼接</view>
+        <view bindtap="goToPage" class="tabBtn" data-direction="vertical">竖向拼接</view>
+    </view>
+    <view class="iconfont back" bindtap="back"></view>
+</view>

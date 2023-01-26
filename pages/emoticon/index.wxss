@@ -1,0 +1,371 @@
+@font-face {
+  font-family: "iconfont";
+  src: url(data:application/x-font-woff;charset=utf-8;base64,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) format('woff'), url(iconfont.svg?t=1546278060489#iconfont-do-not-use-local-path-./fonts/iconfont.wxss&4&7) format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-jiantou-copy:before {
+  content: "\e667";
+}
+
+.icon-icon_arrow_top:before {
+  content: "\e60e";
+}
+
+.icon-jiantouxia:before {
+  content: "\e61e";
+}
+
+.icon-movevertical:before {
+  content: "\e911";
+}
+
+.icon-jiantou:before {
+  content: "\e61f";
+}
+
+.icon-crop-rotate:before {
+  content: "\e6de";
+}
+
+.icon-remove:before {
+  content: "\e602";
+}
+
+.icon-move:before {
+  content: "\e620";
+}
+
+page {
+  width: 100%;
+  height: 100%;
+  background: url(https://wx3.sinaimg.cn/mw1024/69448882gy1fyjkxufex6j20dw08wjsm.jpg) center top;
+  background-size: contain;
+  background-color: #242424;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 10px 10px;
+  position: relative;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.iconfont {
+  display: block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.board {
+  background: url(https://wx3.sinaimg.cn/large/69448882gy1fyjkxufanyj200g00gmxa.jpg);
+  position: relative;
+}
+
+.zan {
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.zan view {
+  height: 80rpx;
+  line-height: 80rpx;
+
+  color: #fff;
+  font-size: 42rpx;
+}
+
+.board image,
+.board input {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
+.bg1 {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+#bgScale {
+  left: 50%;
+  bottom: 0;
+  background: rgba(9, 224, 224, 0.9);
+  transform: translate(-50%, 50%);
+  z-index: 999;
+}
+
+.layer {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.layer text {
+  display: block;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+}
+
+.layer.on::before {
+  display: block;
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: 2px dashed #666;
+  box-sizing: border-box;
+  z-index: -1;
+}
+
+.bg .iconfont {
+  display: none;
+}
+
+.selected.iconfont {
+  display: block;
+  background: #3498db;
+  border-radius: 50%;
+}
+
+.selected.scale {
+  background: #e74c3c;
+  z-index: 9999;
+  transform: translate(50%, 50%);
+}
+
+.tools {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  text-align: center;
+  margin: 10px -5px;
+}
+
+.tools>view {
+  height: 0;
+  flex-basis: 16.66%;
+  padding-top: 16.66%;
+  position: relative;
+}
+
+.tools>view>view {
+  width: 86%;
+  height: 86%;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  left: 7%;
+  top: 7%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  line-height: 1.2;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.tools>view:last-child>view {
+  background: #13a113;
+  color: #fff;
+}
+
+.settings text {
+  display: block;
+  margin: 10px auto;
+  font-size: 32rpx;
+  color: #fff;
+}
+
+.colors {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  margin: 10px auto;
+}
+
+.colors view {
+  flex-basis: 10%;
+  height: 0;
+  padding-top: 10%;
+  position: relative;
+}
+
+.colors view.on::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #f00;
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+}
+
+.stickers {
+  width: 92%;
+  height: 30vh;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  box-sizing: border-box;
+  z-index: 9999;
+  transition: all 0.5s;
+  transform: translateX(100%);
+}
+
+.stickers.on {
+  transform: none;
+  z-index: 99999;
+}
+
+.stickers .arrow {
+  width: 60rpx;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateX(-100%);
+  background: rgba(33, 155, 233, 0.7);
+}
+
+.stickers .arrow .iconfont {
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.tabs-title {
+  display: flex;
+  height: 30px;
+  line-height: 30px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  font-size: 30rpx;
+}
+
+.tabs-title view {
+  flex-basis: 33.33%;
+}
+
+.tabs-title view.on {
+  color: #f00;
+}
+
+.tabs-subtitle {
+  background-color: #fff;
+  width: 80px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-right: 1px solid #ccc;
+  font-size: 30rpx;
+  z-index: 9999;
+}
+
+.tabs-subtitle view {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  border-bottom: 1px solid #ccc;
+}
+
+.tabs-subtitle view.on {
+  background: #eee;
+}
+
+.tabs-content {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 20px 5px 40px 85px;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  align-content: flex-start;
+  justify-content: space-between;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tabs-content image {
+  display: block;
+  width: 30%;
+  margin-right: 10rpx;
+  flex-basis: 45%;
+  margin-bottom: 5px;
+}
+
+.input {
+  font-size: 36rpx;
+  background: #fff;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 8888;
+  transition: all 0.5s;
+  transform: translateY(100%);
+  padding: 20rpx;
+}
+
+.input.on {
+  transform: none;
+  z-index: 99999;
+}
+
+.input .textarea {
+  display: flex;
+  margin: 20rpx 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.textarea input {
+  flex-basis: 75%;
+  display: block;
+  height: 80rpx;
+  line-height: 80rpx;
+  box-sizing: border-box;
+}
+
+.textarea view {
+  flex-basis: 25%;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #13a113;
+  color: #fff;
+  text-align: center;
+}

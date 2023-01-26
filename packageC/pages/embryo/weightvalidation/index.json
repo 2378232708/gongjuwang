@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "胎儿体重计算器",
+    "navigationStyle": "default",
+    "usingComponents": {
+        "cu-custom": "/colorui/components/cu-custom"
+    }
+}

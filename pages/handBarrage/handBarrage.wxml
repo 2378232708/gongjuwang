@@ -1,0 +1,47 @@
+<import src="./tpl.wxml"></import>
+<view bindtap="onShowMenu" class="content-backdrop" style="background-color:rgba({{bg[0]}},{{bg[1]}},{{bg[2]}},{{bg[3]}});">
+    <view class="content-item" style="padding-top:{{pageHeight+600}}rpx;transition-duration:{{displayCss.transitionDuration}}ms; transform:translateY(-{{displayCss.practicalHeight}}px)">
+        <view class="content-scroll" data-index="{{index}}" style="height:{{item.fontHeight}}rpx;line-height:{{item.fontHeight}}rpx;font-size:{{fontSize}}rpx;color:rgba({{font[0]}},{{font[1]}},{{font[2]}},{{font[3]}}); text-shadow: 0 0 {{lightSize}}rpx rgba({{light[0]}},{{light[1]}},{{light[2]}},{{light[3]}});" wx:for="{{inputTextArray}}" wx:key="index">
+      {{item.text}}
+    </view>
+    </view>
+</view>
+<image catchtap="onBack" class="back-img {{isIpx?'ipx':''}}" hidden="{{!showMenu}}" src="https://img.huangyuheng.top/api/gjw/icon/back.png"></image>
+<view class="advanced-settings" hidden="{{!showSettings||!activeAttr||activeAttr==='text'}}">
+    <view class="font-settings" hidden="{{activeAttr!=='font'&&activeAttr!=='light'&&activeAttr!=='bg'}}">
+        <block wx:if="{{activeAttr==='font'}}">
+            <view class="fz-30 white pdl-20 bold mgt-30">大小</view>
+            <slider activeColor="#fff" backgroundColor="#8E8E8E" bindchange="onFontSizeChange" blockColor="#fff" blockSize="18" max="720" min="200" step="2" value="{{fontSize}}"></slider>
+        </block>
+        <block wx:if="{{activeAttr==='light'}}">
+            <view class="fz-30 white pdl-20 bold mgt-30">范围</view>
+            <slider activeColor="#fff" backgroundColor="#8E8E8E" bindchange="onLightSizeChange" blockColor="#fff" blockSize="18" max="100" min="0" step="1" value="{{lightSize}}"></slider>
+        </block>
+        <view class="fz-30 white pdl-20 bold mgt-30">推荐颜色</view>
+        <view class="flex mgt-30 j-c" style="flex-direction: row;">
+            <view bindtap="onSetColor" class="color-item" data-idx="{{index}}" style="background-color: rgba({{item[0]}}, {{item[1]}}, {{item[2]}}, {{item[3]}});" wx:for="{{PRESET_COLORS}}" wx:key="index"></view>
+        </view>
+        <view class="fz-30 white pdl-20 bold mgt-30">自定义颜色(红、绿、蓝、透明度)</view>
+        <slider activeColor="#FF0000" backgroundColor="#8E8E8E" bindchange="onRedChange" blockColor="#FF0000" blockSize="18" max="255" min="0" step="1" value="{{activeAttr==='font'?font[0]:activeAttr==='bg'?bg[0]:light[0]}}"></slider>
+        <slider activeColor="#00FF00" backgroundColor="#8E8E8E" bindchange="onGreenChange" blockColor="#00FF00" blockSize="18" max="255" min="0" step="1" value="{{activeAttr==='font'?font[1]:activeAttr==='bg'?bg[1]:light[1]}}"></slider>
+        <slider activeColor="#0000FF" backgroundColor="#8E8E8E" bindchange="onBlueChange" blockColor="#0000FF" blockSize="18" max="255" min="0" step="1" value="{{activeAttr==='font'?font[2]:activeAttr==='bg'?bg[2]:light[2]}}"></slider>
+        <slider activeColor="#fff" backgroundColor="#8E8E8E" bindchange="onTransparentChange" blockColor="#fff" blockSize="18" max="1" min="0" step="0.1" value="{{activeAttr==='font'?font[3]:activeAttr==='bg'?bg[3]:light[3]}}"></slider>
+    </view>
+    <view class="speed-settings" hidden="{{activeAttr!=='speed'}}">
+        <view class="fz-30 white pdl-20 bold mgt-30">向右滑动变快</view>
+        <slider activeColor="#fff" backgroundColor="#8E8E8E" bindchange="onSpeedChange" blockColor="#fff" blockSize="18" max="1.4" min="0" step="0.1" value="{{2-speed}}"></slider>
+    </view>
+</view>
+<view class="menu {{isIpx?'menu-ipx':''}}" style="animation-name: {{showMenu?'rise':'fall'}};">
+    <view class="flex full-h" style="flex-direction: row;" hidden="{{showInput}}">
+        <template is="menuTpl" data="{{onChangeName:'onShowInput',activeAttr:activeAttr,key:'text',img:'https://img.huangyuheng.top/api/gjw/icon/text.png',title:'文字'}}"></template>
+        <template is="menuTpl" data="{{onChangeName:'onSetFont',activeAttr:activeAttr,key:'font',img:'https://img.huangyuheng.top/api/gjw/icon/font.png',title:'字体'}}"></template>
+        <template is="menuTpl" data="{{onChangeName:'onSetLight',activeAttr:activeAttr,key:'light',img:'https://img.huangyuheng.top/api/gjw/icon/light.png',title:'发光'}}"></template>
+        <template is="menuTpl" data="{{onChangeName:'onSetBg',activeAttr:activeAttr,key:'bg',img:'https://img.huangyuheng.top/api/gjw/icon/bg.png',title:'背景'}}"></template>
+        <template is="menuTpl" data="{{onChangeName:'onSetSpeed',activeAttr:activeAttr,key:'speed',img:'https://img.huangyuheng.top/api/gjw/icon/speed.png',title:'速度'}}"></template>
+    </view>
+    <view class="flex full-h" hidden="{{!showInput}}">
+        <input bindconfirm="onSendText" bindinput="onKeyInput" class="bottom-text" cursorSpacing="20" focus="{{showInput}}" maxlength="100" placeholder="请输入…" value="{{defaultInputValue}}"></input>
+        <button bindtap="onSendText" class="send-btn" hoverClass="none">发送</button>
+    </view>
+</view>

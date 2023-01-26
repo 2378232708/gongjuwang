@@ -1,0 +1,31 @@
+.result-container {
+  margin-top: 50rpx;
+  padding: 40rpx 10rpx;
+  width: 90%;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 20rpx;
+  box-shadow: 0 1rpx 10rpx rgba(0, 0, 0, .2);
+  background-color: #fff;
+  font-size: 36rpx;
+}
+.result{
+  width: 90%;
+  height: 500rpx;
+}
+.opts{
+  position: absolute;
+  display: flex;
+  bottom: 50rpx;
+  right: 50rpx;
+}
+.opts>view{
+  margin-right: 20rpx;
+  padding: 10rpx 20rpx;
+  background-color: rgb(233, 233, 233);
+  font-size: 30rpx;
+  border-radius: 20rpx;
+}

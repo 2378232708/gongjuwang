@@ -1,0 +1,158 @@
+<view class="page">
+    <view class="flex-box dk-mt f30 t-c">
+        <view bindtap="swichNav" class="flex dk-mt-list" data-idx="{{idx}}" wx:for="{{navbar}}" wx:for-index="idx" wx:key="id">
+            <text class="dk-mt-text {{currentNavbar==idx?'on':''}}">{{item}}</text>
+        </view>
+    </view>
+    <view class="gray-bg"></view>
+    <form bindsubmit="formSubmit" reportSubmit="true">
+        <input class="hide" name="daikan_type" value="{{currentNavbar}}"></input>
+        <view class="dk-ceng bor-b clearfix">
+            <view class="fl f30">{{titlename[currentNavbar]['re_type']}}</view>
+            <view class="fr f28">
+                <input class="hide" name="re_type" value="{{currentRefund}}"></input>
+                <view bindtap="radioChange" class="inline-block ml30" data-idx="{{item.typevalue}}" data-inputname="re_type" wx:for="{{refundArr}}" wx:for-index="idx" wx:key="id">
+                    <icon class="icon-check mr10" color="#1eacea" size="20" type="{{currentRefund==item.typevalue?'success':'circle'}}"></icon>{{item.name}}
+					</view>
+            </view>
+        </view>
+        <view class="dk-ceng bor-b clearfix" hidden="{{currentNavbar==0?false:true}}">
+            <view class="fl f30">{{titlename[currentNavbar]['jisuan_type']}}</view>
+            <input class="hide" name="jisuan_type" value="{{jisuanRefund}}"></input>
+            <view class="fr f28">
+                <label bindtap="radioChange" class="ml30" data-idx="all" data-inputname="jisuan_type">
+                    <icon class="icon-check mr10" color="#1eacea" size="20" type="{{jisuanRefund=='all'?'success':'circle'}}"></icon>按贷款总额
+              </label>
+                <label bindtap="radioChange" class="ml30" data-idx="prize" data-inputname="jisuan_type">
+                    <icon class="icon-check mr10" color="#1eacea" size="20" type="{{jisuanRefund=='prize'?'success':'circle'}}"></icon>按单价
+              </label>
+            </view>
+        </view>
+        <view class="dk-ceng bor-b clearfix" hidden="{{currentNavbar==1?true:currentNavbar==0&&jisuanRefund=='prize'?true:false}}">
+            <view class="fl f30">{{titlename[currentNavbar]['total']}}</view>
+            <view class="fr f28">
+                <input bindinput="ipt" class="inp fl" maxlength="9" name="total" placeholder="请输入贷款总额" placeholderClass="psection-inp" type="digit"></input>
+                <text class="fr">万元</text>
+            </view>
+        </view>
+        <view class="dk-ceng bor-b clearfix" hidden="{{currentNavbar==0&&jisuanRefund=='prize'?false:true}}">
+            <view class="fl f30">{{titlename[currentNavbar]['price']}}</view>
+            <view class="fr f28">
+                <input bindinput="ipt" class="inp fl" maxlength="9" name="price" placeholder="请输入单价" placeholderClass="psection-inp" type="digit"></input>
+                <text class="fr">元/㎡</text>
+            </view>
+        </view>
+        <view class="dk-ceng bor-b clearfix" hidden="{{currentNavbar==0&&jisuanRefund=='prize'?false:true}}">
+            <view class="fl f30">{{titlename[currentNavbar]['area']}}</view>
+            <view class="fr f28">
+                <input bindinput="ipt" class="inp fl" maxlength="9" name="area" placeholder="请输入面积" placeholderClass="psection-inp" type="digit"></input>
+                <text class="fr">㎡</text>
+            </view>
+        </view>
+        <view class="dk-ceng bor-b clearfix" hidden="{{currentNavbar==0&&jisuanRefund=='prize'?false:true}}">
+            <view class="fl f30">{{titlename[currentNavbar]['firstpay']}}</view>
+            <view class="fr f28">
+                <picker bindchange="bindPickerChange" name="firstpay" range="{{firstpay_arr}}" value="{{firstpay_index}}">
+                    <view class="picker">
+						{{firstpay_arr[firstpay_index]}}
+						</view>
+                </picker>
+            </view>
+        </view>
+        <view class="dk-slider bor-b f30" hidden="{{currentNavbar==0||currentNavbar==2?false:true}}">
+            <view class="clearfix">
+                <view class="fl">{{titlename[currentNavbar]['qishu']}}</view>
+                <view class="fr">{{all_fangdaiset['mortgage_year'][nianxianindex-1]['qishu']}}</view>
+            </view>
+            <view class="drag-pole relative pt20 pb10">
+                <slider showValue bindchange="changqishu" id="qishu" max="{{max_lilv}}" min="1" name="qishu" value="{{nianxianindex}}"></slider>
+                <text class="dk-nian-text">年</text>
+            </view>
+        </view>
+        <block wx:if="{{currentNavbar==0||currentNavbar==2}}">
+            <view class="dk-ceng bor-b clearfix">
+                <view class="fl f30">利率方式</view>
+                <view class="fr f28">
+                    <picker bindchange="lprChange" name="lprname" range="{{lprchoose_arr}}" value="{{lprIndex}}">
+                        <view class="picker">
+						 {{lprchoose_arr[lprIndex]}}
+            	<icon class="icon-right"></icon>
+                        </view>
+                    </picker>
+                </view>
+            </view>
+            <view class="dk-ceng bor-b clearfix" hidden="{{lprIndex==0?false:true}}">
+                <view bindtap="showdtlDialog" class="fl f30">LPR<icon class="icon-qst"></icon>
+                </view>
+                <view class="fr f28">
+                    <input bindinput="changelprvalue" class="inp fl" id="lprvalue" maxlength="10" name="lprvalue" placeholder="请输入利率" placeholderClass="psection-inp" type="digit" value="{{lprvalue}}"></input>
+                    <text class="fr">%</text>
+                </view>
+            </view>
+            <view class="dk-ceng bor-b clearfix" hidden="{{lprIndex==0?false:true}}">
+                <view class="fl f30">基点</view>
+                <view class="fr f28">
+                    <input bindinput="changejiidan" class="inp fl" maxlength="10" name="lprbp" placeholder="请输入基点" placeholderClass="psection-inp" type="text" value="0"></input>
+                    <text class="fr">BP‱</text>
+                </view>
+            </view>
+            <view class="dk-ceng bor-b clearfix" hidden="{{lprIndex==0?false:true}}">
+                <view class="fl f30">利率</view>
+                <view class="fr f28">
+                    <text class="pr20">{{lprvalue}}% + {{jidanvalue}}‱ = {{jidianlilv}}% </text>
+                </view>
+            </view>
+            <view hidden="{{lprIndex==1?false:true}}">
+                <navigator url="lilv?type={{currentNavbar}}&lid=lilv&lbase={{chooselilv_1}}&year={{nianxianindex}}">
+                    <view class="dk-ceng bor-b clearfix">
+                        <input class="hide" name="lilv" value="{{chooselilv_1}}"></input>
+                        <view class="fl f30">{{titlename[currentNavbar]['lilv']}}</view>
+                        <view class="fr f28">
+                            <text class="pr20">{{chooselilv_1}}%</text>
+                            <icon class="icon-right"></icon>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+        </block>
+        <view class="dk-ceng bor-b clearfix" hidden="{{currentNavbar==1||currentNavbar==2?false:true}}">
+            <view class="fl f30">{{titlename[currentNavbar]['gjj_total']}}</view>
+            <view class="fr f28">
+                <input bindinput="ipt" class="inp fl" maxlength="9" name="gjj_total" placeholder="请输入贷款总额" placeholderClass="psection-inp" type="digit"></input>
+                <text class="fr">万元</text>
+            </view>
+        </view>
+        <view class="dk-slider bor-b f30" hidden="{{currentNavbar==1||currentNavbar==2?false:true}}">
+            <view class="clearfix">
+                <view class="fl">{{titlename[currentNavbar]['gjj_qishu']}}</view>
+                <view class="fr">{{all_fangdaiset['mortgage_year'][gjj_nianxianindex-1]['qishu']}}</view>
+            </view>
+            <view class="drag-pole relative pt20 pb10" hidden="{{currentNavbar==1||currentNavbar==2?false:true}}">
+                <slider showValue bindchange="changqishu" id="gjj_qishu" max="{{max_lilv}}" min="1" name="gjj_qishu" value="{{gjj_nianxianindex}}"></slider>
+                <text class="dk-nian-text">年</text>
+            </view>
+        </view>
+        <view hidden="{{currentNavbar==1||currentNavbar==2?false:true}}">
+            <navigator url="lilv?type={{currentNavbar}}&lid=gjj_lilv&lbase={{chooselilv_2}}&year={{gjj_nianxianindex}}">
+                <view class="dk-ceng bor-b clearfix">
+                    <input class="hide" name="gjj_lilv" value="{{chooselilv_2}}"></input>
+                    <view class="fl f30">{{titlename[currentNavbar]['gjj_lilv']}}</view>
+                    <view class="fr f28">
+                        <text class="pr20">{{chooselilv_2}}%</text>
+                        <icon class="icon-right"></icon>
+                    </view>
+                </view>
+            </navigator>
+        </view>
+        <view class="btn">
+            <button class="submitbtn" formType="submit" hoverClass="btn-hover">开始计算</button>
+        </view>
+    </form>
+    <view class="gray-bg"></view>
+    <view class="sd-text p30 gray f26 bor-b">
+        <view class="pt10" wx:if="{{all_fangdaiset.lprinfo.lpr_desc}}">{{all_fangdaiset.lprinfo.lpr_desc}}</view>
+        <view class="pt10">当前年限基准利率：商业贷款{{show_base_lilv.sd}}%，公积金贷款{{show_base_lilv.gjj}}%。</view>
+        <view class="pt10">等额本息： 每月按相等的金额偿还贷款本息，其中本金逐月递增，利息逐月递减，月还款额不变。</view>
+        <view class="pt10">等额本金： 每月按相等的金额偿还贷款本金，其中本金保持相同，利息逐月递减，月还款额越来越少。</view>
+    </view>
+</view>

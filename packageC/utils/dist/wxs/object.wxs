@@ -1,0 +1,8 @@
+var REGEXP = getRegExp('{|}|\x5cx5cx22', 'g');
+
+function keys(obj) {
+    return (((JSON.stringify(obj).replace(REGEXP, '').split(',').map((((function(item) {
+        return (((item.split(':')[((nt_0 = (((nt_0 = ((0)), null == nt_0 ? undefined : 'number' === typeof nt_0 ? nt_0 : "" + nt_0))), null == nt_0 ? undefined : 'number' === typeof nt_0 ? nt_0 : "" + nt_0))])))
+    })))))))
+};
+module.exports.keys = keys;

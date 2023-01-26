@@ -1,0 +1,43 @@
+function isPrimitive(value) {
+    var type = typeof value;
+    return ((((type === 'boolean' || type === 'number' || type === 'string' || type === 'undefined' || value === null))))
+};
+
+function call(fn, args) {
+    if (args.length === 2) {
+        return (((fn(args[((nt_0 = (((nt_0 = ((0)), null == nt_0 ? undefined : 'number' === typeof nt_0 ? nt_0 : "" + nt_0))), null == nt_0 ? undefined : 'number' === typeof nt_0 ? nt_0 : "" + nt_0))], args[((nt_1 = (((nt_1 = ((1)), null == nt_1 ? undefined : 'number' === typeof nt_1 ? nt_1 : "" + nt_1))), null == nt_1 ? undefined : 'number' === typeof nt_1 ? nt_1 : "" + nt_1))]))))
+    };
+    if (args.length === 1) {
+        return (((fn(args[((nt_2 = (((nt_2 = ((0)), null == nt_2 ? undefined : 'number' === typeof nt_2 ? nt_2 : "" + nt_2))), null == nt_2 ? undefined : 'number' === typeof nt_2 ? nt_2 : "" + nt_2))]))))
+    };
+    return (((fn())))
+};
+
+function serializer(args) {
+    if (args.length === 1 && isPrimitive(args[((nt_3 = (((nt_3 = ((0)), null == nt_3 ? undefined : 'number' === typeof nt_3 ? nt_3 : "" + nt_3))), null == nt_3 ? undefined : 'number' === typeof nt_3 ? nt_3 : "" + nt_3))])) {
+        return (((args[((nt_4 = (((nt_4 = ((0)), null == nt_4 ? undefined : 'number' === typeof nt_4 ? nt_4 : "" + nt_4))), null == nt_4 ? undefined : 'number' === typeof nt_4 ? nt_4 : "" + nt_4))])))
+    };
+    var obj = ((({})));
+    for (var i = 0; i < args.length; i++) {
+        obj[((nt_5 = (((nt_5 = (((nt_5 = ('key' + i), null == nt_5 ? undefined : 'number' === typeof nt_5 ? nt_5 : "" + nt_5))), null == nt_5 ? undefined : 'number' === typeof nt_5 ? nt_5 : "" + nt_5))), null == nt_5 ? undefined : 'number' === typeof nt_5 ? nt_5 : "" + nt_5))] = args[((nt_6 = (((nt_6 = (((nt_6 = (i), null == nt_6 ? undefined : 'number' === typeof nt_6 ? nt_6 : "" + nt_6))), null == nt_6 ? undefined : 'number' === typeof nt_6 ? nt_6 : "" + nt_6))), null == nt_6 ? undefined : 'number' === typeof nt_6 ? nt_6 : "" + nt_6))]
+    };
+    return (((JSON.stringify(obj))))
+};
+
+function memoize(fn) {
+    arguments.length = arguments.length;
+    arguments.length = arguments.length;
+    arguments.length = arguments.length;
+    var cache = ((({})));
+    return ((((((function() {
+        arguments.length = arguments.length;
+        arguments.length = arguments.length;
+        arguments.length = arguments.length;
+        var key = serializer(arguments);
+        if (cache[((nt_7 = (((nt_7 = (((nt_7 = (key), null == nt_7 ? undefined : 'number' === typeof nt_7 ? nt_7 : "" + nt_7))), null == nt_7 ? undefined : 'number' === typeof nt_7 ? nt_7 : "" + nt_7))), null == nt_7 ? undefined : 'number' === typeof nt_7 ? nt_7 : "" + nt_7))] === undefined) {
+            cache[((nt_8 = (((nt_8 = (((nt_8 = (key), null == nt_8 ? undefined : 'number' === typeof nt_8 ? nt_8 : "" + nt_8))), null == nt_8 ? undefined : 'number' === typeof nt_8 ? nt_8 : "" + nt_8))), null == nt_8 ? undefined : 'number' === typeof nt_8 ? nt_8 : "" + nt_8))] = call(fn, arguments)
+        };
+        return (((cache[((nt_9 = (((nt_9 = (((nt_9 = (key), null == nt_9 ? undefined : 'number' === typeof nt_9 ? nt_9 : "" + nt_9))), null == nt_9 ? undefined : 'number' === typeof nt_9 ? nt_9 : "" + nt_9))), null == nt_9 ? undefined : 'number' === typeof nt_9 ? nt_9 : "" + nt_9))])))
+    }))))))
+};
+module.exports.memoize = memoize;

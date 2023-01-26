@@ -1,0 +1,11 @@
+<view class="bg flex">
+  <view class="iconfont back" bindtap="back"></view>
+  <view class="form">
+    <text>反馈内容：</text>
+    <textarea bindinput="changeContent" name="" id="" cols="30" rows="10" placeholder="请输入反馈内容"></textarea>
+    <text>联系方式(手机号/邮箱)：</text>
+    <input bindinput="changeInfo" type="text" placeholder="请输入手机号/邮箱" />
+    <button bindtap="submit" class="submit">提交反馈</button>
+  </view>
+
+</view>

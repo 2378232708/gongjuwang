@@ -1,0 +1,13 @@
+<view class="Main_OP bg">
+  <view class="Name">{{itemname}}</view>
+  <view class="tiem"> 时间：{{itemTime[0]}}</view>
+  <image class="head_image" src="{{img}}" lazy-load></image>
+  <view>
+    <view wx:for="{{itemList}}" wx:for-item="item" wx:key="index" class="Main_text">
+      <text class="text-index" wx:if="{{index!=itemList.length-1}}">{{index+1}}</text>
+      {{item}}
+    </view>
+  </view>
+  <view class="weiyu">{{data.weiyu}}</view>
+  <view class="iconfont back" bindtap="back"></view>
+</view>

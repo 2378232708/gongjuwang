@@ -1,0 +1,9 @@
+<view class="bg">
+  <view class="iconfont back" bindtap="back"></view>
+  <view class="text-wrap2">
+    <text class="t2">一键提取图片中的文字支持多图</text>
+  </view>
+  <view>
+    <button bindtap="bindViewTap" class="select" type="primary"> 选择照片 </button>
+  </view>
+</view>

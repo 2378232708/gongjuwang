@@ -1,0 +1,22 @@
+<view class="bg flex" style="position: relative;">
+  <view class="iconfont back" bindtap="back"></view>
+  <view class="result-container">
+  <textarea class="result" bindinput="changeRes" 	auto-focus="true" wx:if="{{isEdit}}" name="" id="" cols="30" rows="10" value="{{result}}" maxlength="-1"></textarea>
+    <text class="result" bindtap="edit" wx:else>{{result}}</text>
+    <text style="margin: 50rpx;">{{translateText}}</text>
+    <view class="opts">
+      <view bindtap="bindCopy">
+        <view></view>
+        <text>复制文字</text>
+      </view>
+      <view bindtap="translate">
+        <view></view>
+        <text>翻译</text>
+      </view>
+      <view bindtap="translateCopy">
+        <view></view>
+        <text>复制翻译内容</text>
+      </view>
+    </view>
+  </view>
+</view>

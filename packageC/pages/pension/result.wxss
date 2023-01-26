@@ -1,0 +1,162 @@
+.header {
+    margin: 0;
+    width: 750rpx;
+    height: 228rpx;
+}
+
+.header-bottom-outer {
+    padding-top: 3.8px;
+    margin: 0 5px;
+    height: 11.2px;
+    border-radius: 7.5px;
+}
+
+.header-bottom-inner {
+    margin: 0 2.5px;
+    height: 10px;
+    border-radius: 5px;
+}
+
+.footer {
+    width: 100%;
+    height: 120rpx;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-img {
+    margin-top: 20rpx;
+    width: 300rpx;
+    height: 68rpx;
+}
+
+.body-footer-img-bg {
+    display: flex;
+    margin: 0 25rpx;
+}
+
+.body-footer-img {
+    margin-right: 0;
+    margin-left: 0;
+    width: 100%;
+    height: 27.6rpx;
+}
+
+.body {
+    flex-grow: 1;
+}
+
+.body,.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    min-height: 100%;
+    width: 100%;
+    justify-content: space-between;
+}
+
+page {
+    height: 100%;
+    width: 100%;
+    background-color: #9badeb;
+}
+
+.header-bottom-outer {
+    background: #617ff9;
+}
+
+.header-bottom-inner {
+    background: #355dff;
+}
+
+.re-background {
+    flex-direction: column;
+    margin: -8px 25rpx 0;
+    background: #fff;
+    align-items: center;
+    justify-content: center;
+}
+
+.re-background,.re-title {
+    display: flex;
+}
+
+.re-title {
+    margin-top: 45rpx;
+    font-size: 30rpx;
+    color: #888;
+}
+
+.re-pension {
+    margin-top: 25rpx;
+    font-size: 60rpx;
+    color: #45bb44;
+}
+
+.re-pension,.re-status-bg {
+    display: flex;
+}
+
+.re-status-bg {
+    flex-direction: column;
+    margin-top: 84rpx;
+    width: 650rpx;
+    height: auto;
+    background-color: #f8f8f8;
+    align-items: center;
+    justify-content: center;
+}
+
+.re-avatar {
+    margin-top: -76rpx;
+    background: #f8f8f8;
+    border-radius: 76rpx;
+    width: 152rpx;
+    height: 152rpx;
+}
+
+.re-avatar,.re-status {
+    display: flex;
+}
+
+.re-status {
+    margin-top: 30rpx;
+    font-size: 56rpx;
+    color: #222;
+}
+
+.re-introductions {
+    margin: 15rpx 85rpx 0;
+    font-size: 30rpx;
+    color: #888;
+    text-align: center;
+}
+
+.re-button-bg,.re-introductions {
+    display: flex;
+}
+
+.re-button-bg {
+    flex-direction: column;
+    background-color: #fff;
+    width: 650rpx;
+    height: auto;
+}
+
+.re-relay-button {
+    margin: 30rpx 0;
+    height: 90rpx;
+    font-size: 36rpx;
+    background-color: #45bb44;
+    color: #fff;
+}
+
+.re-skip-button {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 15rpx;
+    height: 90rpx;
+    font-size: 36rpx;
+}

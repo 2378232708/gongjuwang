@@ -1,0 +1,40 @@
+<view class="bg" style="padding-top: 0; min-height: 100vh;">
+  <view class="iconfont back" bindtap="back" style="z-index: 10000; position: fixed;"></view>
+  <view class="cnt {{detailVisible?'blur':''}}" >
+    <view class="search-bar" style="padding-top: 150rpx;">
+      <input autoFocus bindinput="search" class="search-input" placeholder="查询垃圾对应分类" value="{{searchText}}"></input>
+    </view>
+    <view style="height: 138rpx;"></view>
+    <view class="kind-list" style="padding-top: 150rpx;">
+      <view bindtap="toDetail" class="kind-item arrow" data-kind="{{item.cats}}" data-name="{{item.name}}" wx:for="{{searchList}}" wx:key="id">
+        {{item.name}}
+        <text wx:if="{{item.cats=='1'}}">厨余垃圾</text>
+        <text wx:if="{{item.cats=='2'}}">其他垃圾</text>
+        <text wx:if="{{item.cats=='3'}}">可回收物</text>
+        <text wx:if="{{item.cats=='4'}}">有害垃圾</text>
+      </view>
+    </view>
+  </view>
+  <view bindtap="toggleDetail" class="mask-mod" hidden="{{!detailVisible}}">
+    <view catchtap="toggleDetail" class="kind-detail-mod kind{{current.kind}}">
+      <view class="current-name">{{current.name}}</view>
+      <view style="margin-bottom: 30rpx;">属于</view>
+      <view wx:if="{{current.kind=='1'}}">
+        <image src="https://bg.v3124.cn/9567kl/img33/kind1.png"></image>
+        <view>厨余垃圾（湿垃圾）</view>
+      </view>
+      <view wx:if="{{current.kind=='2'}}">
+        <image src="https://bg.v3124.cn/9567kl/img33/kind2.png"></image>
+        <view>其他垃圾（干垃圾）</view>
+      </view>
+      <view wx:if="{{current.kind=='3'}}">
+        <image src="https://bg.v3124.cn/9567kl/img33/kind3.png"></image>
+        <view>可回收物</view>
+      </view>
+      <view wx:if="{{current.kind=='4'}}">
+        <image src="https://bg.v3124.cn/9567kl/img33/kind4.png"></image>
+        <view>有害垃圾</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,70 @@
+<view class="index bg">
+  <!-- 搜索 -->
+  <view class="search" wx:if="{{!isSearch}}" bindtap="search">
+    <text class="iconfont icon-box"> 搜索工具</text>
+    <view class="iconfont icon-sousuo"></view>
+  </view>
+  <view class="search" wx:else>
+    <text class="iconfont icon-box" style="width: auto; color: #555555;"> </text>
+    <input type="text" bindinput="changeSearch" placeholder="输入工具名称" focus="true" value="{{searchKey}}" />
+    <view class="iconfont icon-sousuo" bindtap="changeSearch"></view>
+    <view class="search-index bg hot-list" style="padding: 0;">
+      <view bindtap="goTool" wx:for="{{searchTools}}" wx:key="item" data-path='{{item.path}}' style="animation: moveIn {{index<=7?(index*0.1+0.5):0}}s;">
+        <image src="{{item.img}}"></image>
+        <view class="tool-text">
+          <view>{{item.name}}</view>
+          <text>{{item.title}}</text>
+        </view>
+        <view catchtap="coll" class="coll iconfont {{isColls[index]?'icon-shoucang2':'icon-shoucang1'}}" data-id="{{item.id}}"></view>
+      </view>
+    </view>
+  </view>
+  <!-- 幻灯片 -->
+  <swiper class="slide" autoplay="true" circular='true' previous-margin="10rpx" next-margin="10rpx" snap-to-edge="true" easing-function="easeInOutCubic">
+    <swiper-item bindtap="goTool" data-path="/pages/news/index">
+      <view style="margin: 0 5%; width: 90%; height:100%; border-radius: 20rpx; overflow: hidden;">
+        <image src="{{newsImg}}" style="margin: 0; width: 100%; height: 110%;"></image>
+      </view>
+    </swiper-item>
+    <swiper-item bindtap="goLife">
+      <image src="https://img.huangyuheng.top/api/gjw//banner/wm.png"></image>
+    </swiper-item>
+    <swiper-item>
+      <navigator target="miniProgram" app-id="wxca5f47b57622e932" style="margin: 0 5%; width: 90%; height:100%; border-radius: 20rpx; overflow: hidden;">
+        <image src="https://img.huangyuheng.top/api/gjw//banner/wenan.jpg" style="margin: 0; width: 100%; height: 100%;"></image>
+      </navigator>
+    </swiper-item>
+  </swiper>
+  <!-- 导航栏 -->
+  <view class="nav">
+    <view class="nav-item1" bindtap="goMore" data-index="0">
+      <view class="iconfont icon-remen" style="background-image:linear-gradient(to top,rgba(69, 194, 235, .08),transparent); color:#45c2eb ;"></view><text>热门</text>
+    </view>
+    <view class="nav-item2" bindtap="goMore" data-index="1">
+      <view class="iconfont icon-shiyonggongju" style="background-image:linear-gradient(to top,rgba(248, 156, 74, .08),transparent); color:#f89c4a ;"></view><text>实用工具</text>
+    </view>
+    <view class="nav-item3" bindtap="goMore" data-index="2">
+      <view class="iconfont icon-shangchuantupian" style="background-image:linear-gradient(to top,rgba(69, 232, 167, .08),transparent); color: #45e8a7;"></view><text>图片处理</text>
+    </view>
+    <view class="nav-item4" bindtap="goMore" data-index="0">
+      <view class="iconfont icon-gengduotianchong" style="background-image:linear-gradient(to top,rgba(192, 139, 253, .08),transparent); color: #c08bfd;"></view><text>更多</text>
+    </view>
+  </view>
+  <!-- 热门精选 -->
+  <view class="hot">
+    <view class="hot-title">
+      <text>热门精选</text>
+      <view bindtap="goMore" data-index="0">查看更多</view>
+    </view>
+    <view class="hot-list">
+      <view bindtap="goTool" wx:for="{{hotTools}}" wx:key="item" data-path='{{item.path}}' style="animation: moveIn {{index<=7?(index*0.1+0.5):0}}s;">
+        <image src="{{item.img}}"></image>
+        <view class="tool-text">
+          <view>{{item.name}}</view>
+          <text>{{item.title}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="iconfont back" bindtap="search" wx:if="{{isSearch}}"></view>
+</view>

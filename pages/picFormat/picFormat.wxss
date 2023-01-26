@@ -1,0 +1,91 @@
+.juzhong {
+  text-align: center;
+  width: 100%;
+}
+
+.js,.jst {
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+
+.jst {
+  background-color: #f3f3f3;
+  font-size: 28rpx;
+  color: #555;
+}
+
+.tp {
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+image {
+  width: 500rpx;
+}
+
+.tp-cc-box {
+  width: 580rpx;
+  background-color: #f3f3f3;
+  margin: 30rpx auto 0;
+  font-size: 28rpx;
+  color: #333;
+  padding: 10rpx 30rpx 20rpx;
+}
+
+.gs-t {
+  margin-top: 20rpx;
+}
+
+.zh {
+  width: 580rpx;
+  margin: 30rpx auto 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.yswa {
+  padding: 30rpx;
+  font-size: 30rpx;
+  color: #999;
+}
+
+.tit-o {
+  color: #000;
+  font-weight: 700;
+  margin-bottom: 20rpx;
+}
+
+.bc-btn,.tit-o {
+  text-align: center;
+}
+
+.bc-btn {
+  width: 640rpx;
+  margin: 0 auto;
+}
+button{
+  width: 40%;
+  height: 80rpx;
+  text-align: center;
+  border-radius: 50rpx;
+  font-weight: 700;
+  color: #fff;
+  box-shadow: 0 10rpx 10rpx rgba(124, 192, 255, 0.2);
+}
+.select {
+  margin-top: 50rpx;
+  background-image: linear-gradient(to right, #4291fa, #610ff0);
+}
+.select:active {
+  background-image: none;
+  background-color: #7086fb;
+  color: #fff;
+}
+.save {
+  background-image: linear-gradient(to right, #fe6c32, #fc1159);
+}
+.save:active {
+  background-image: none;
+  background-color: #fe6b32;
+  color: #fff;
+}

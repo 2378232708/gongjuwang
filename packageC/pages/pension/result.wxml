@@ -1,0 +1,17 @@
+<import src="./common/header.wxml"></import>
+<view class="container">
+    <template is="header" data></template>
+    <view class="body">
+        <view class="re-background">
+            <view class="re-title">持续缴纳社保，退休后每个月可领养老金</view>
+            <view class="re-pension">{{'¥ '+pension}}</view>
+            <view class="re-status-bg">
+                <view class="re-status">{{result.status}}</view>
+                <view class="re-introductions" style="{{result.style}}">{{result.introductions}}</view>
+            </view>
+        </view>
+        <view class="body-footer-img-bg">
+            <image class="body-footer-img" src="https://img.huangyuheng.top/api/gjw/pageC/pension/contentImgW.png"></image>
+        </view>
+    </view>
+</view>

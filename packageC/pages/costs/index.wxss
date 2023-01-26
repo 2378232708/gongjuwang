@@ -1,0 +1,93 @@
+.jsq_header {
+    background: #219ff0;
+    color: #fff;
+    text-align: center;
+}
+
+.jsq_header .result {
+    display: block;
+    font-size: 100rpx;
+    font-weight: 300;
+    padding-top: 30rpx;
+}
+
+.jsq_header .title {
+    font-size: 28rpx;
+    margin-top: -10rpx;
+    display: block;
+}
+
+.jsq_header input {
+    background: #fff;
+    margin: 60rpx 40rpx 0;
+    height: 80rpx;
+    border-radius: 8rpx;
+    font-size: 28rpx;
+    color: #333;
+    line-height: 80rpx;
+    text-align: left;
+    padding: 0 10px;
+    display: block;
+}
+
+.jsq_header .input_tips {
+    font-size: 28rpx;
+    text-align: left;
+    margin: 16rpx 40rpx 0;
+}
+
+.jsq_header .jiantou {
+    padding: 25rpx 0;
+}
+
+.jsq_header .jiantou image {
+    width: 36px;
+}
+
+.jsq_btn {
+    padding: 0 40rpx;
+}
+
+.jsq_btn button {
+    border: none;
+    background: #219ff0;
+    margin-top: 40rpx;
+    color: #fff;
+}
+
+.jsq_btn button.hover-class {
+    background: #1987cd;
+    color: #a3d7f9;
+}
+
+.jsq_copy {
+    color: #ccc;
+    font-size: 28rpx;
+    display: block;
+    margin-top: 70rpx;
+}
+
+.jsq_copy,.jsq_msg {
+    text-align: center;
+    width: 100%;
+}
+
+.jsq_msg {
+    position: absolute;
+    background: #c00;
+    color: #fff;
+    bottom: -40px;
+    padding: 10px 0;
+    height: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    transition-property: bottom;
+    transition-duration: .2s;
+    opacity: .8;
+    display: none;
+}
+
+.jsq_msg_show {
+    bottom: 0;
+    display: block;
+}

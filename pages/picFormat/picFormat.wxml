@@ -1,0 +1,62 @@
+<view class="container bg">
+  <view bindtap="back" class="iconfont back"></view>
+  <view class="juzhong">
+    <button bindtap="imgCheck" class="select" type="primary">
+      选择照片
+    </button>
+  </view>
+  <view class="page__bd" style="color: rgb(185, 185, 185); margin-top: 20px;padding: 10px;">
+    <view class="weui-article">
+      <view class="weui-article__section">
+        <view class="weui-article__h2">特别提示：</view>
+        <view class="weui-article__p">
+          本功能是图片格式进行转化，支持将图片转换为png或者jpg（jpg就是jpeg）
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="tp-cc-box" wx:if="{{isupImg}}">
+    <view class="tit-o">原始图片信息</view>
+    <view>
+      <text>图片尺寸：</text>
+      <text>{{wh}}</text>
+    </view>
+    <view class="gs-t">
+      <text>图片格式：</text>
+      <text>{{type}}</text>
+    </view>
+    <view class="gs-t">
+      <text>图片大小：</text>
+      <text>{{size}}</text>
+    </view>
+  </view>
+  <view class="zh" wx:if="{{isupImg}}">
+    <button bindtap="topng" class="save" type="primary">
+      转换为png
+    </button>
+  </view>
+  <view class="tp-cc-box" wx:if="{{iscpimg}}">
+    <view class="tit-o">生成后图片信息</view>
+    <view>
+      <text>图片尺寸：</text>
+      <text>{{cpwh}}</text>
+    </view>
+    <view class="gs-t">
+      <text>图片格式：</text>
+      <text>{{cptype}}</text>
+    </view>
+    <view class="gs-t">
+      <text>图片大小：</text>
+      <text>{{cpsize}}</text>
+    </view>
+  </view>
+</view>
+<view class="bc-btn">
+  <button block bindtap="save" class="save" type="primary" wx:if="{{iscpimg}}">保存到相册</button>
+</view>
+<canvas canvasId="canvas" style="width:{{cWidth}}px;height:{{cHeight}}px; position: absolute;left:-1000px;top:9000px;"></canvas>
+<canvas canvasId="canvas2" style="width:{{cWidth}}px;height:{{cHeight}}px; position: absolute;right:-1000px;top:9000px;"></canvas>
+<van-popup bind:close="onClose" customStyle="height: 60%;" position="bottom" show="{{popShow}}">
+  <view class="yswa">jpg图片支持压缩大小选择的值越小，生成的图片越小。</view>
+  <van-picker showToolbar bind:cancel="onCancel" bind:confirm="onConfirm" cancelButtonText="不压缩" columns="{{array}}" confirmButtonText="压缩" title=""></van-picker>
+</van-popup>

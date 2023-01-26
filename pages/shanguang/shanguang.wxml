@@ -1,0 +1,8 @@
+<view class="box">
+    <button bindtap="shandeng" class="a" style="{{xianshi}}">快 闪</button>
+    <button bindtap="mshandeng" class="a" style="{{xianshi}}">慢 闪</button>
+    <button bindtap="changliang" class="a" style="{{xianshi}}">常 亮</button>
+    <button bindtap="close" class="c" style="{{xianshi_01}}">停 止</button>
+</view>
+<camera binderror="error" devicePosition="back" flash="{{flash}}" mode="scanCode" style="width: 1rpx; height: 1rpx;opacity: 0;"></camera>
+<template is="item" data="{{text:'forbar'}}"></template>

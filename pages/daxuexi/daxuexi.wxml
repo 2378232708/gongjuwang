@@ -1,0 +1,16 @@
+<view class="bg watermark">
+  <view class="analysis">
+    <view>由于小程序截图被右上角胶囊遮挡</view>
+    <view>请移步公众号：<text>恒久百宝箱</text></view>
+    <button bindtap="follow">关注公众号</button>
+  </view>
+  <view class="support">
+    <text>使用说明：</text>
+    <view>
+      <text>1. 进入青年大学习，观看几秒</text>
+      <text>2. 进入公众号（恒久百宝箱）回复大学习获取链接</text>
+      <text>3. 打开链接截图即可</text>
+    </view>
+  </view>
+</view>
+<view class="iconfont back" bindtap="back"></view>

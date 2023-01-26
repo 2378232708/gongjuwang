@@ -1,0 +1,20 @@
+<view class="bg watermark">
+  <view class="analysis">
+    <text>解析视频:</text>
+    <view class="tip">打开平台 → 选择作品 → 分享 → 复制链接</view>
+    <input type="text" bindinput="changeUrl" placeholder="请输入短视频链接" />
+    <button class="start" bindtap="getVideo">开始解析</button>
+    <view wx:if="{{video.url}}" style="animation: out .5s; display: flex; flex-direction: column; align-items: center;">
+      <video src="{{video.url}}" poster="{{video.cover}}" title="{{video.title}}"></video>
+      <button class="download" bindtap="downloadViedo">下载/复制视频链接</button>
+      <button class="download" bindtap="copyTitle">复制作品标题</button>
+    </view>
+  </view>
+  <view class="support">
+    <text>支持平台：</text>
+    <view class="support-list">
+      <view wx:for="{{supportList}}" wx:key="item">{{item}}</view>
+    </view>
+  </view>
+</view>
+<view class="iconfont back" bindtap="back"></view>

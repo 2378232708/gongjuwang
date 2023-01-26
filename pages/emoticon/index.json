@@ -1,0 +1,9 @@
+{
+  "disableScroll": true,
+  "usingComponents": {},
+  "backgroundTextStyle": "light",
+  "navigationStyle": "default",
+  "navigationBarBackgroundColor": "#222",
+  "navigationBarTitleText": "表情制作神器",
+  "navigationBarTextStyle": "white"
+}

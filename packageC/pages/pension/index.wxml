@@ -1,0 +1,34 @@
+<import src="./common/header.wxml"></import>
+<view class="container">
+    <template is="header" data></template>
+    <view class="body">
+        <form bindsubmit="formSubmit">
+            <view class="in-background">
+                <view class="list-header">请填写以下信息</view>
+                <view class="list-background">
+                    <view class="list" wx:for="{{contents}}" wx:for-item="content" wx:key="index">
+                        <view class="title-view">{{content.title}}</view>
+                        <input bindblur="bindblurAction" bindfocus="bindfocusAction" class="content-view" id="{{content.id}}" maxlength="{{content.maxlength}}" name="{{content.id}}" placeholder="{{content.placeholder}}" placeholderClass="placeholder" type="number" value="{{content.content}}" wx:if="{{content.input}}"></input>
+                        <picker bindchange="bindPickerChange" class="picker" id="{{content.id}}" mode="{{content.mode}}" name="{{content.id}}" range="{{content.array}}" value="{{content.value}}" wx:else>
+                            <view class="content-view">{{content.content}}</view>
+                        </picker>
+                        <view bindtap="infoAction" class="info" id="{{content.id}}" wx:if="{{content.input}}"></view>
+                        <image bindtap="infoAction" class="info-img" id="{{content.id}}" src="https://img.huangyuheng.top/api/gjw/pageC/pension/info.png" wx:if="{{content.input}}"></image>
+                        <image class="arrow" src="https://img.huangyuheng.top/api/gjw/pageC/pension/arrow.png" wx:else></image>
+                    </view>
+                </view>
+                <button bindgetuserinfo="onGotUserInfo" class="button" lang="zh_CN" openType="getUserInfo">计算养老金</button>
+            </view>
+        </form>
+    </view>
+</view>
+<view capture-catch:touchmove="coverViewTap" class="cover-mask" hidden="{{info.hidden}}">
+    <view class="cover-bg">
+        <view class="info-title">{{info.info.title}}</view>
+        <view class="info-content" wx:for="{{info.info.content}}" wx:for-item="content" wx:key="*this">{{content}}</view>
+        <view class="info-line"></view>
+        <view bindtap="infoButtonAction" class="info-button-view">
+            <view class="info-button-title">知道了</view>
+        </view>
+    </view>
+</view>

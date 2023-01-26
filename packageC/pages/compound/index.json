@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "复利计算器工具",
+    "navigationStyle": "default",
+    "usingComponents": {
+        "cu-custom": "/colorui/components/cu-custom"
+    }
+}

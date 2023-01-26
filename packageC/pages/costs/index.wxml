@@ -1,0 +1,17 @@
+<view class="jsq_header">
+    <text class="result">{{result}}</text>
+    <text class="title">计算结果{{gtype}}</text>
+    <input bindinput="get_input" class="input" name="input" placeholder="输入金额" placeholderStyle="color:#ccc; font-size:28rpx;" type="number" value=""></input>
+    <view class="input_tips">输入标的额或诉讼费(单位：元)</view>
+    <view class="jiantou">
+        <image mode="widthFix" src="/images/costs/jiantou.png"></image>
+    </view>
+</view>
+<view class="jsq_btn">
+    <button bindtap="shouli" hoverClass="hover-class">计算受理费用</button>
+    <button bindtap="baoquan" hoverClass="hover-class">计算保全费用</button>
+    <button bindtap="zhixing" hoverClass="hover-class">计算执行费用</button>
+    <button bindtap="lihun" hoverClass="hover-class">计算离婚费用</button>
+    <button hoverClass="hover-class" openType="share">分享</button>
+</view>
+<view class="jsq_msg {{display}}">{{msg}}</view>

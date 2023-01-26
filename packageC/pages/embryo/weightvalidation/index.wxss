@@ -1,0 +1,67 @@
+.container,page {
+    background: #faf6f6;
+}
+
+.container {
+    padding: 30rpx 30rpx 5rpx;
+}
+
+.result-body .has-background-white {
+    background: #fff;
+}
+
+.item .column {
+    flex: 1;
+    padding-bottom: 15rpx;
+    text-align: center;
+}
+
+.row-header {
+    display: flex;
+    border-bottom: 3rpx solid #faf6f6;
+}
+
+.row-header .column {
+    padding: 15rpx 0;
+}
+
+.row-header text {
+    color: #ff6173;
+    font-weight: 500;
+    font-size: 45rpx;
+}
+
+.row-bottom {
+    border-top: 3rpx solid #faf6f6;
+}
+
+.row-bottom .column {
+    padding: 15rpx;
+}
+
+.suggestion {
+    display: block;
+    line-height: 40rpx;
+    color: #d81e06;
+    text-align: left;
+    font-size: 25rpx;
+}
+
+.validation-values {
+    margin: 0;
+    padding-top: 25rpx;
+}
+
+.validation-value {
+    padding: 25rpx 0;
+    color: #ff6173;
+    font-weight: 500;
+    font-size: 50rpx;
+    text-align: center;
+}
+
+.validation-tips .suggestion {
+    line-height: 40rpx;
+    font-size: 25rpx;
+    padding: 25rpx 25rpx 0;
+}

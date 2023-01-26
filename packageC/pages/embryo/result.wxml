@@ -1,0 +1,186 @@
+<view class="container">
+    <view class="result-body">
+        <view class="item has-background-white">
+            <view class="row row-header">
+                <view class="column">
+                    <text>当前选择的孕周</text>
+                </view>
+            </view>
+            <view class="row">
+                <view class="column">
+                    <view class="weight has-text-centered">
+                        <text>第</text>
+                        <text class="value has-text-primary">{{week}}</text>
+                        <text>周</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="item has-background-white">
+            <view class="row row-header">
+                <view class="column">
+                    <text>当前胎儿体重约为</text>
+                </view>
+            </view>
+            <view class="row">
+                <view class="column">
+                    <view class="weight has-text-centered">
+                        <text class="value has-text-primary">{{bodyWeight}}</text>
+                        <text>斤</text>
+                    </view>
+                    <view class="compare-bar">
+                        <view class="item low">
+                            <text>{{'<'}} {{currentRefer.weight.start/500}}</text>
+                        </view>
+                        <view class="item normal">
+                            <text>{{currentRefer.weight.start/500}} ~ {{currentRefer.weight.end/500}}</text>
+                        </view>
+                        <view class="item high">
+                            <text>{{'>'}} {{currentRefer.weight.end/500}}</text>
+                        </view>
+                    </view>
+                    <view class="compare-desc">
+                        <view class="item low">
+                            <text>低于正常范围</text>
+                        </view>
+                        <view class="item normal">
+                            <text>正常范围</text>
+                        </view>
+                        <view class="item high">
+                            <text>高于正常范围</text>
+                        </view>
+                    </view>
+                    <view class="validation-button">
+                        <button bindtap="validateWeight">点击验证胎儿体重是否正常</button>
+                    </view>
+                </view>
+            </view>
+            <view class="row row-bottom">
+                <view class="column">
+                    <text class="tips">提示：以上计算公式仅为胎儿体重估测，并不代表婴儿出生的实际体重。预测胎儿体重的目的在于及早发现胎儿发育上存在的问题。一般来说，出生时的实际体重与预测体重会有正负10-15%的误差。</text>
+                    <text class="suggestion">注意：每个人体质情况不一样，如果计算结果与标准值范围有出入，请咨询医生，让她估算一下胎儿体重，再结合妈妈的身体状况，看看宝宝是否发育正常。</text>
+                </view>
+            </view>
+        </view>
+        <view class="item has-background-white">
+            <view class="row row-header">
+                <view class="column">
+                    <text>当前输入的双顶径(BPD)</text>
+                </view>
+            </view>
+            <view class="row">
+                <view class="column">
+                    <view class="weight has-text-centered">
+                        <text class="value has-text-primary">{{bodyBDP}}</text>
+                        <text>cm</text>
+                    </view>
+                    <view class="compare-bar">
+                        <view class="item low">
+                            <text>{{'<'}} {{currentRefer.bdp.start}}</text>
+                        </view>
+                        <view class="item normal">
+                            <text>{{currentRefer.bdp.start}} ~ {{currentRefer.bdp.end}}</text>
+                        </view>
+                        <view class="item high">
+                            <text>{{'>'}} {{currentRefer.bdp.end}}</text>
+                        </view>
+                    </view>
+                    <view class="compare-desc">
+                        <view class="item low">
+                            <text>低于正常范围</text>
+                        </view>
+                        <view class="item normal">
+                            <text>正常范围</text>
+                        </view>
+                        <view class="item high">
+                            <text>高于正常范围</text>
+                        </view>
+                    </view>
+                    <view class="validation-button">
+                        <button bindtap="validateBmode" data-key="bdp">点击验证双顶径是否正常</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="item has-background-white">
+            <view class="row row-header">
+                <view class="column">
+                    <text>当前输入的腹围(AC)</text>
+                </view>
+            </view>
+            <view class="row">
+                <view class="column">
+                    <view class="weight has-text-centered">
+                        <text class="value has-text-primary">{{bodyAC}}</text>
+                        <text>cm</text>
+                    </view>
+                    <view class="compare-bar">
+                        <view class="item low">
+                            <text>{{'<'}} {{currentRefer.ac.start}}</text>
+                        </view>
+                        <view class="item normal">
+                            <text>{{currentRefer.ac.start}} ~ {{currentRefer.ac.end}}</text>
+                        </view>
+                        <view class="item high">
+                            <text>{{'>'}} {{currentRefer.ac.end}}</text>
+                        </view>
+                    </view>
+                    <view class="compare-desc">
+                        <view class="item low">
+                            <text>低于正常范围</text>
+                        </view>
+                        <view class="item normal">
+                            <text>正常范围</text>
+                        </view>
+                        <view class="item high">
+                            <text>高于正常范围</text>
+                        </view>
+                    </view>
+                    <view class="validation-button">
+                        <button bindtap="validateBmode" data-key="ac">点击验证腹围是否正常</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="item has-background-white">
+            <view class="row row-header">
+                <view class="column">
+                    <text>当前输入的股骨长(FL)</text>
+                </view>
+            </view>
+            <view class="row">
+                <view class="column">
+                    <view class="weight has-text-centered">
+                        <text class="value has-text-primary">{{bodyFL}}</text>
+                        <text>cm</text>
+                    </view>
+                    <view class="compare-bar">
+                        <view class="item low">
+                            <text>{{'<'}} {{currentRefer.fl.start}}</text>
+                        </view>
+                        <view class="item normal">
+                            <text>{{currentRefer.fl.start}} ~ {{currentRefer.fl.end}}</text>
+                        </view>
+                        <view class="item high">
+                            <text>{{'>'}} {{currentRefer.fl.end}}</text>
+                        </view>
+                    </view>
+                    <view class="compare-desc">
+                        <view class="item low">
+                            <text>低于正常范围</text>
+                        </view>
+                        <view class="item normal">
+                            <text>正常范围</text>
+                        </view>
+                        <view class="item high">
+                            <text>高于正常范围</text>
+                        </view>
+                    </view>
+                    <view class="validation-button">
+                        <button bindtap="validateBmode" data-key="fl">点击验证股骨长是否正常</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

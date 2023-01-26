@@ -1,0 +1,21 @@
+<template name="evaluation-list">
+    <view class="evaluation-list">
+        <navigator class="evaluation-list__item-wrap" openType="redirect" url="/psychology/pages/index/index">
+            <view class="e_flex flex--middle evaluation-list__item">
+                <view class="evaluation-list__item-image-wrap">
+                    <image class="evaluation-list__item-image" mode="aspectFill" src="/images/scl.png"></image>
+                </view>
+                <view class="flex-item evaluation-list__item-content e_flex flex-vertical flex--stretch flex--side">
+                    <view class="evaluation-list__item-title text-overflow">免费心理测试</view>
+                    <view class="evaluation-list__item-summary color-weaken text-multi-overflow">世界上最著名的心理测试之一</view>
+                </view>
+                <view class="text-right">
+                    <text class="evaluation-list__item-btn btn-size">GO</text>
+                    <view class="text-center btn-size">
+                        <text class="color-weaken fz10 evaluation-list__item-num">831256人测过</text>
+                    </view>
+                </view>
+            </view>
+        </navigator>
+    </view>
+</template>

@@ -1,0 +1,76 @@
+.tool {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 小程序信息 */
+.info {
+  margin-top: 250rpx;
+  padding-top: 100rpx;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500rpx;
+  height: 150rpx;
+  background-color: #fff;
+  border-radius: 30rpx;
+  box-shadow: 0 5rpx 10rpx rgba(0, 0, 0, .2);
+}
+
+.info image {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+}
+
+/* 选项 */
+.option {
+  margin-top: 60rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.option>view {
+  position: relative;
+  margin-bottom: 40rpx;
+  width: 80%;
+  height: 120rpx;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 30rpx;
+  box-shadow: 0 5rpx 10rpx rgba(0, 0, 0, .2);
+}
+.option>view button{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.option>view:active{
+  background-color: rgb(240, 240, 240);
+}
+.option>view text {
+  width: 90%;
+}
+
+.option>view text::before {
+  margin: 50rpx 30rpx 0;
+  font-size: 45rpx;
+  color: #2E9CFE;
+  font-weight: 700;
+  /* vertical-align: middle; */
+}
+
+.option>view view {
+  color: #9F9F9F;
+}

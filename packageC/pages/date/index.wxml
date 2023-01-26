@@ -1,0 +1,66 @@
+<view class="container">
+    <view class="weui-cells__title">开始</view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">开始日期</view>
+            </view>
+            <view class="weui-cell__bd">
+                <picker bindchange="bindDate0Change" end="2100-01-01" mode="date" start="1970-01-01" value="{{date}}">
+                    <view class="weui-input">{{date0}}</view>
+                </picker>
+            </view>
+        </view>
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">开始时间</view>
+            </view>
+            <view class="weui-cell__bd">
+                <picker bindchange="bindTime0Change" end="23:59" mode="time" start="00:00" value="{{time}}">
+                    <view class="weui-input">{{time0}}</view>
+                </picker>
+            </view>
+        </view>
+    </view>
+    <view class="weui-cells__title">结束</view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">结束日期</view>
+            </view>
+            <view class="weui-cell__bd">
+                <picker bindchange="bindDate1Change" end="2100-01-01" mode="date" start="1970-01-01" value="{{date}}">
+                    <view class="weui-input">{{date1}}</view>
+                </picker>
+            </view>
+        </view>
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">结束时间</view>
+            </view>
+            <view class="weui-cell__bd">
+                <picker bindchange="bindTime1Change" end="23:59" mode="time" start="00:00" value="{{time}}">
+                    <view class="weui-input">{{time1}}</view>
+                </picker>
+            </view>
+        </view>
+    </view>
+    <view class="btn-area" style="display: flex">
+        <button bindtap="onCanculateClick" class="page-body-button" style="width: 40%" type="primary">计算日期差</button>
+    </view>
+    <view class="weui-cells">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">结果是:</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input bindblur="bindInputBlur" class="weui-input" disabled="false" placeholder="{{result}}" type="text"></input>
+            </view>
+        </view>
+        <view class="weui-cells__title">(周数是:{{result_week}})</view>
+    </view>
+</view>

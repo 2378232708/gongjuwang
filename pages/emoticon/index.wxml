@@ -1,0 +1,83 @@
+<view class="container">
+  <view bindtouchend="touchEnd" bindtouchmove="touchMove" bindtouchstart="touchStart" class="board" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;">
+    <view class="bg1" style="background:#{{bgColor}};">
+      <block wx:for="{{layers}}" wx:key="index">
+        <view class="layer {{selected===index?'on':''}}" style="z-index:{{item.zIndex}};width:{{item.nWidth}}px;height:{{item.nHeight}}px;left:{{item.left}}px;top:{{item.top}}px;transform:rotate({{item.rotate}}deg) scale({{item.scale}}){{item.flipX?' matrix(-1, 0, 0, 1, 0, 0)':''}}{{item.flipY?' matrix(1, 0, 0, -1, 0, 0)':''}};font-size:{{item.size}}px;color:#{{item.color}};">
+          <image data-idx="{{index}}" data-type="layerDrag" src="{{item.src}}" wx:if="{{item.type=='img'}}"></image>
+          <text catchtap="textEdit" data-idx="{{index}}" data-type="layerDrag" wx:else>{{item.text}}</text>
+        </view>
+        <view class="scale iconfont icon-crop-rotate {{selected===index?'selected':''}}" data-idx="{{index}}" data-type="layerScale" style="left:{{item.right-30}}px;top:{{item.bottom-30}}px;"></view>
+      </block>
+    </view>
+    <view class="iconfont icon-movevertical scale" data-type="bgScale" id="bgScale"></view>
+  </view>
+  <view class="settings">
+    <text>背景颜色</text>
+    <view class="colors">
+      <view catchtap="changeBgColor" class="{{bgColor==item?'on':''}}" data-color="{{item}}" style="background:#{{item}};" wx:for="{{colors}}" wx:key="index"></view>
+    </view>
+  </view>
+  <view class="tools">
+    <view catchtap="addImage">
+      <view>添加图片</view>
+    </view>
+    <view catchtap="addText">
+      <view>添加文字</view>
+    </view>
+    <view catchtap="copyLayer">
+      <view>复制图层</view>
+    </view>
+    <view catchtap="removerLayer">
+      <view>删除图层</view>
+    </view>
+    <view catchtap="upperLayer">
+      <view>图层上移</view>
+    </view>
+    <view catchtap="lowerLayer">
+      <view>图层下移</view>
+    </view>
+    <view catchtap="flipX">
+      <view>水平翻转</view>
+    </view>
+    <view catchtap="flipY">
+      <view>垂直翻转</view>
+    </view>
+    <view catchtap="removeAll">
+      <view>清空</view>
+    </view>
+    <view catchtap="undo">
+      <view>撤销</view>
+    </view>
+    <view catchtap="redo">
+      <view>重做</view>
+    </view>
+    <view catchtap="generate">
+      <view>生成</view>
+    </view>
+  </view>
+  <view class="stickers {{hideStickers?'':'on'}}">
+    <view catchtap="showStickers" class="arrow">
+      <view class="iconfont {{hideStickers?'icon-jiantou-copy':'icon-jiantou'}}"></view>
+    </view>
+    <view catchtap="changeTab" class="tabs-title">
+      <view class="{{currentTab==index?'on':''}}" data-idx="{{index}}" wx:for="{{tabs}}" wx:key="index">{{item.name}}</view>
+    </view>
+    <view catchtap="changeSubTab" class="tabs-subtitle">
+      <view class="{{currentSubTab==index?'on':''}}" data-idx="{{index}}" wx:for="{{tabs[currentTab].children}}" wx:key="index">{{item.name}}</view>
+    </view>
+    <view catchtap="addSticker" class="tabs-content">
+      <image class="sticker" data-src="{{item}}" mode="widthFix" src="{{item}}" wx:for="{{stickers}}" wx:key="index"></image>
+    </view>
+  </view>
+  <view class="input {{hideTextarea?'':'on'}}">
+    <text>文字内容</text>
+    <view class="textarea">
+      <input bindinput="typing" focus="{{textFocus}}" maxlength="14" placeholder="在这里输入文字" value="{{textContent}}"></input>
+      <view catchtap="hideTextarea">完成</view>
+    </view>
+    <text>文字颜色</text>
+    <view class="colors">
+      <view catchtap="changeColor" class="{{textColor==item?'on':''}}" data-color="{{item}}" style="background:#{{item}};" wx:for="{{colors}}" wx:key="index"></view>
+    </view>
+  </view>
+</view>

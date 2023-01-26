@@ -1,0 +1,88 @@
+.container {
+  padding: 35% 20rpx 20rpx;
+  position: relative;
+}
+
+.btns {
+  display: flex;
+}
+
+.text-wrap1 {
+  height: 0rpx;
+  text-align: center;
+  margin-bottom: 50rpx;
+  font-weight: 700;
+}
+
+.text-wrap2 {
+  margin-top: 10px;
+  text-align: center;
+  margin-bottom: 100rpx;
+  color: #969595;
+}
+
+.free {
+  bottom: 50rpx;
+  width: 100%;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.free,
+.history-icon-rwap {
+  text-align: center;
+  position: fixed;
+}
+
+.history-icon-rwap {
+  bottom: 30rpx;
+  right: 30rpx;
+}
+
+.zan-icon-rwap {
+  position: fixed;
+  bottom: 180rpx;
+  right: 40rpx;
+  text-align: center;
+}
+
+.history-icon {
+  width: 80rpx;
+  height: 80rpx;
+  vertical-align: top;
+}
+
+.lsjl {
+  color: #666;
+  font-size: 26rpx;
+}
+
+.notice-msg {
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 20rpx;
+}
+
+.select {
+  width: 40%;
+  height: 80rpx;
+  text-align: center;
+  font-size: 30rpx;
+  border-radius: 50rpx;
+  font-weight: 700;
+  color: #fff;
+  box-shadow: 0 10rpx 10rpx rgba(124, 192, 255, 0.2);
+  margin-right: 30rpx;
+  background-image: linear-gradient(to right, #4291fa, #610ff0);
+}
+.select:active {
+  background-image: none;
+  background-color: #7086fb;
+  color: #fff;
+}

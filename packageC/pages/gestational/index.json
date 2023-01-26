@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "预产期计算器工具",
+    "usingComponents": {
+        "cu-custom": "/colorui/components/cu-custom"
+    }
+}

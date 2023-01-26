@@ -1,0 +1,6 @@
+<template name="menuTpl">
+    <view bindtap="{{onChangeName}}" class="menu-item flex-1 flex column {{activeAttr===key?'active':''}}">
+        <image class="menu-img-{{key}}" src="{{img}}"></image>
+        <view class="menu-title white center bold">{{title}}</view>
+    </view>
+</template>

@@ -1,0 +1,113 @@
+<view class="cnt {{detailVisible?'blur':''}}" style="padding-top: 150rpx; background-color: #fff;">
+  <view class="iconfont back" bindtap="back"></view>
+    <view class="search-bar">
+        <view bindtap="toSearch" class="search-input">点击查询垃圾对应分类</view>
+    </view>
+    <view style="height: 178rpx;"></view>
+    <view class="wrapper {{isX?'fix-x-height':''}}" >
+        <view class="kind-nav" style="margin-top: 120rpx;">
+            <view bindtap="toSelect" class="nav-item {{activeTab==1?'active':''}}" data-id="1">厨余垃圾</view>
+            <view bindtap="toSelect" class="nav-item {{activeTab==2?'active':''}}" data-id="2">其他垃圾</view>
+            <view bindtap="toSelect" class="nav-item {{activeTab==3?'active':''}}" data-id="3">可回收物</view>
+            <view bindtap="toSelect" class="nav-item {{activeTab==4?'active':''}}" data-id="4">有害垃圾</view>
+        </view>
+        <scroll-view scrollY class="kind-list-mod" enableBackToTop="true" hidden="{{activeTab!=1}}" scrollWithAnimation="true">
+            <view id="kind1"></view>
+            <view class="kind-info-mod">
+                <view class="kind-info kind1-info">
+                    <image src="https://bg.v3124.cn/9567kl/img33/kind1.png"></image>
+                    <view>厨余垃圾</view>
+                    <view>（湿垃圾）</view>
+                </view>
+                <view>
+                    <text>厨余垃圾（湿垃圾）</text>是指易腐的生物质废弃物。主要包括剩菜剩饭、瓜皮果核、花卉绿植、肉类碎骨、过期食品、餐厨垃圾等。</view>
+                <view>投放要求：</view>
+                <view>纯流质的食物垃圾，如牛奶等，应直接倒进下水口</view>
+                <view>有包装物的厨余垃圾应将包装物取出后分类投放，包装物请投放到对应的可回收物容器或其他垃圾容器</view>
+                <view>投放厨余垃圾时，鼓励将包装物（如塑料袋）去除</view>
+            </view>
+            <view class="kind-list">
+                <view bindtap="toDetail" class="kind-item arrow" data-kind="1" data-name="{{item.name}}" wx:for="{{kindList[1]}}" wx:key="id">{{item.name}}</view>
+            </view>
+        </scroll-view>
+        <scroll-view scrollY class="kind-list-mod" enableBackToTop="true" hidden="{{activeTab!=2}}" scrollWithAnimation="true">
+            <view id="kind2"></view>
+            <view class="kind-info-mod">
+                <view class="kind-info kind2-info">
+                    <image src="https://bg.v3124.cn/9567kl/img33/kind2.png"></image>
+                    <view>其他垃圾</view>
+                    <view>（干垃圾）</view>
+                </view>
+                <view>
+                    <text>其他垃圾（干垃圾）</text>是指除有害垃圾、可回收物、厨余垃圾以外的其他生活废弃物。</view>
+                <view>投放要求：</view>
+                <view>尽量沥干水分</view>
+                <view>难以辨识类别的生活垃圾投入其他垃圾容器内</view>
+            </view>
+            <view class="kind-list">
+                <view bindtap="toDetail" class="kind-item arrow" data-kind="2" data-name="{{item.name}}" wx:for="{{kindList[2]}}" wx:key="id">{{item.name}}</view>
+            </view>
+        </scroll-view>
+        <scroll-view scrollY class="kind-list-mod" enableBackToTop="true" hidden="{{activeTab!=3}}" scrollWithAnimation="true">
+            <view id="kind3"></view>
+            <view class="kind-info-mod">
+                <view class="kind-info kind3-info">
+                    <image src="https://bg.v3124.cn/9567kl/img33/kind3.png"></image>
+                    <view>可回收物</view>
+                </view>
+                <view>
+                    <text>可回收物</text>是指适宜回收和可循环再利用的废弃物。主要包括废玻璃、废金属、废塑料、废纸张、废织物等。</view>
+                <view>投放要求：</view>
+                <view>轻投轻放</view>
+                <view>清洁干燥，避免污染</view>
+                <view>废纸尽量平整</view>
+                <view>立体包装请清空内容物，清洁后压扁投放</view>
+                <view>有尖锐边角的，应包裹后投放</view>
+            </view>
+            <view class="kind-list">
+                <view bindtap="toDetail" class="kind-item arrow" data-kind="3" data-name="{{item.name}}" wx:for="{{kindList[3]}}" wx:key="id">{{item.name}}</view>
+            </view>
+        </scroll-view>
+        <scroll-view scrollY class="kind-list-mod" enableBackToTop="true" hidden="{{activeTab!=4}}" scrollWithAnimation="true">
+            <view id="kind4"></view>
+            <view class="kind-info-mod">
+                <view class="kind-info kind4-info">
+                    <image src="https://bg.v3124.cn/9567kl/img33/kind4.png"></image>
+                    <view>有害垃圾</view>
+                </view>
+                <view>
+                    <text>有害垃圾</text>是指对人体健康或者自然环境造成直接或者潜在危害的零星废弃物，单位集中产生的除外。主要包括废电池、废灯管、废药品、废油漆桶等。</view>
+                <view>投放要求：</view>
+                <view>充电电池、纽扣电池、蓄电池投放时请注意轻放</view>
+                <view>油漆桶、杀虫剂如有残留请密闭后投放</view>
+                <view>荧光灯、节能灯易破损请连带包装或包裹后轻放</view>
+                <view>废药品及其包装连带包装一并投放</view>
+            </view>
+            <view class="kind-list">
+                <view bindtap="toDetail" class="kind-item arrow" data-kind="4" data-name="{{item.name}}" wx:for="{{kindList[4]}}" wx:key="id">{{item.name}}</view>
+            </view>
+        </scroll-view>
+    </view>
+</view>
+<view bindtap="toggleDetail" class="mask-mod" hidden="{{!detailVisible}}">
+    <view catchtap="toggleDetail" class="kind-detail-mod kind{{current.kind}}">
+        <view class="current-name">{{current.name}}</view>
+        <view style="margin-bottom: 30rpx;">属于</view>
+        <view wx:if="{{current.kind=='1'}}">
+            <image src="https://bg.v3124.cn/9567kl/img33/kind1.png"></image>
+            <view>厨余垃圾（湿垃圾）</view>
+        </view>
+        <view wx:if="{{current.kind=='2'}}">
+            <image src="https://bg.v3124.cn/9567kl/img33/kind2.png"></image>
+            <view>其他垃圾（干垃圾）</view>
+        </view>
+        <view wx:if="{{current.kind=='3'}}">
+            <image src="https://bg.v3124.cn/9567kl/img33/kind3.png"></image>
+            <view>可回收物</view>
+        </view>
+        <view wx:if="{{current.kind=='4'}}">
+            <image src="https://bg.v3124.cn/9567kl/img33/kind4.png"></image>
+            <view>有害垃圾</view>
+        </view>
+    </view>
+</view>

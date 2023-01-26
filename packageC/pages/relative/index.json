@@ -1,0 +1,10 @@
+{
+    "navigationBarBackgroundColor": "#333",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "亲戚计算器工具",
+    "navigationStyle": "default",
+    "disableScroll": true,
+    "usingComponents": {
+        "cu-custom": "/colorui/components/cu-custom"
+    }
+}

@@ -1,0 +1,17 @@
+<view class="nine bg">
+  <view style="height:auto;display: flex;flex-direction: column;align-items: center;">
+    <image class="image" src="{{img}}" style="width:{{showInfo.width}}px;height:{{showInfo.height}}px;"></image>
+    <view class="choose" style="width:{{showInfo.width}}px;height:{{showInfo.height}}px">
+      <view bindtap="previewImage" class="choose-module {{index%2==0?'choose-module-odd':''}}" data-index="{{index}}" style="width:{{showInfo.width/3}}px;height:{{showInfo.height/3}}px;line-height:{{showInfo.height/3}}px;" wx:for="{{isChoose?[1,2,3,4,5,6,7,8,9]:['请','选','择','九','宫','格','的','图','片']}}" wx:key="item">{{item}}</view>
+    </view>
+  </view>
+  <!-- <view style="height:{{fixedHeight}}px;width:100%"></view> -->
+  <canvas canvasId="{{canvasInfo.id}}" class="canvas" style="width:{{canvasInfo.width}}px;height:{{canvasInfo.height}}px;position:absolute;top:{{showInfo.height+systemInfo.height}}px;left:-99999px;"></canvas>
+  <view class="btn-box">
+    <view bindtap="chooseImage" class="select">
+      {{isChoose?'更换图片':'选择图片'}}</view>
+    <view bindtap="saveAll" class="save" wx:if="{{isChoose}}">
+      保存所有图片</view>
+  </view>
+  <view class="iconfont back" bindtap="back"></view>
+</view>

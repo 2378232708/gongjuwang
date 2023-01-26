@@ -1,0 +1,276 @@
+page {
+    background: #fff;
+}
+
+.container,.head {
+    position: relative;
+}
+
+.head {
+    overflow: hidden;
+    height: 282rpx;
+}
+
+.head image {
+    width: 100%;
+    height: 100%;
+}
+
+.head view {
+    position: absolute;
+    color: #fff;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.head .title {
+    top: 182rpx;
+}
+
+.head .money {
+    top: 82rpx;
+    font-size: 72rpx;
+    font-weight: 700;
+}
+
+.condition {
+    width: 686rpx;
+    height: 164rpx;
+    background: #fff;
+    box-shadow: 0 4rpx 20rpx 0 rgba(197,216,242,.64);
+    border-radius: 20rpx;
+    position: relative;
+    margin: -100rpx auto 0;
+    overflow: hidden;
+    display: flex;
+    padding: 48rpx 0;
+    box-sizing: border-box;
+}
+
+.condition .item {
+    flex: 1;
+    text-align: center;
+}
+
+.condition .item .txt {
+    font-size: 24rpx;
+    margin-bottom: 20rpx;
+    color: #9e9e9e;
+    line-height: 24rpx;
+}
+
+.condition .item .num {
+    font-size: 32rpx;
+    font-weight: 700;
+    color: #3781f1;
+    line-height: 32rpx;
+}
+
+.condition .item .tax {
+    color: #ff7752;
+}
+
+.reslutList .tips {
+    line-height: 32rpx;
+    font-size: 24rpx;
+    color: #bebebe;
+    padding-top: 16rpx;
+}
+
+.detail,.formula {
+    padding: 0 32rpx;
+    margin-top: 64rpx;
+}
+
+.detail .tips {
+    margin-top: 32rpx;
+    text-align: center;
+    font-weight: 500;
+    font-size: 24rpx;
+    color: #cf9300;
+    line-height: 40rpx;
+    background: #fff0ce;
+    border-radius: 8rpx;
+    padding: 12rpx 32rpx;
+    position: relative;
+}
+
+.detail .list {
+    margin-top: 38rpx;
+}
+
+.detail .list .item {
+    font-size: 24rpx;
+    color: #9e9e9e;
+    line-height: 40rpx;
+    padding: 25rpx 0;
+    overflow: hidden;
+}
+
+.detail .list .txt {
+    width: 50%;
+    float: left;
+}
+
+.detail .list .num {
+    width: 50%;
+    float: right;
+    color: #1e2254;
+    text-align: right;
+    font-weight: 500;
+    font-size: 28rpx;
+    font-family: PingFangSC-Medium;
+}
+
+.detail .list .tax {
+    border-top: 1px solid #f5f5f5;
+}
+
+.detail .banner {
+    width: 100%;
+    height: 100rpx;
+    margin-bottom: 20rpx;
+    margin-top: 20rpx;
+    background: linear-gradient(1turn,#5778fe,#6989fe);
+    box-shadow: 0 16rpx 20rpx 0 rgba(91,124,254,.18);
+    border-radius: 8rpx;
+}
+
+.detail .banner text {
+    line-height: 100rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #fff;
+}
+
+.detail .title,.formula .title {
+    position: relative;
+    height: 44rpx;
+    padding-left: 20rpx;
+    color: #222557;
+    font-weight: 500;
+    line-height: 44rpx;
+    font-size: 32rpx;
+}
+
+.detail .title view,.formula .title view {
+    position: absolute;
+    left: 0;
+    top: 12rpx;
+    height: 20rpx;
+    width: 4rpx;
+    background: #419bf9;
+    border-radius: 8rpx;
+}
+
+.formula .formula_list view {
+    margin-top: 28rpx;
+    line-height: 46rpx;
+    padding-left: 20rpx;
+    font-size: 26rpx;
+}
+
+.formula .formula_list view text:first-child {
+    color: #212557;
+    font-weight: 500;
+    font-size: 28rpx;
+}
+
+.formula .formula_list view text:last-child {
+    color: #1e2254;
+    font-weight: 300;
+    font-size: 26rpx;
+    opacity: .7;
+}
+
+.tax_rate_table {
+    padding: 0 32rpx;
+}
+
+.tax_rate_table .title {
+    position: relative;
+    height: 28rpx;
+    font-size: 28rpx;
+    color: #303030;
+    font-weight: 500;
+    line-height: 28rpx;
+    padding: 46rpx 0 46rpx 20rpx;
+}
+
+.tax_rate_table .title view {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 20rpx;
+    width: 4rpx;
+    background: #419bf9;
+    border-radius: 8rpx;
+    transform: translateY(-50%);
+}
+
+.tax_rate_table image {
+    width: 100%;
+}
+
+.tax_rate_table .tips {
+    margin-top: 20rpx;
+    font-size: 24rpx;
+    color: #888;
+    line-height: 32rpx;
+}
+
+.end {
+    padding: 20rpx 0 28rpx;
+    color: #888;
+    opacity: .37;
+    font-size: 24rpx;
+}
+
+.banner,.end {
+    text-align: center;
+}
+
+.banner {
+    margin-top: 30rpx;
+}
+
+.banner image {
+    width: 686rpx;
+}
+
+.pushButton {
+    margin-top: 60rpx;
+    width: 100%;
+    padding: 0 48rpx;
+    box-sizing: border-box;
+}
+
+.pushButton .text {
+    height: 52rpx;
+    background: #eafffb;
+    border-radius: 8rpx;
+    position: relative;
+    padding: 0 32rpx 0 102rpx;
+}
+
+.pushButton .text image {
+    display: block;
+    position: absolute;
+    top: -40rpx;
+    left: 0;
+    width: 80rpx;
+    height: 78rpx;
+}
+
+.pushButton .text text {
+    display: inline-block;
+    width: 100%;
+    height: 52rpx;
+    line-height: 52rpx;
+    font-family: PingFangSC-Medium;
+    font-size: 24rpx;
+    color: #0dcea7;
+    background: url("https://img.51baoshui.com/miniApp/calculator/push-arrow.png") no-repeat 100%;
+    background-size: 12rpx 20rpx;
+}

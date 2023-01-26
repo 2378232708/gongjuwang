@@ -1,0 +1,111 @@
+@font-face {
+  font-family: "iconfont";
+  src: url(data:application/x-font-woff;charset=utf-8;base64,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) format('woff'),url(iconfont.svg?t=1546278060489#iconfont-do-not-use-local-path-./fonts/iconfont.wxss&4&7) format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont"!important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-jiantou-copy:before {
+  content: "\e667";
+}
+
+.icon-icon_arrow_top:before {
+  content: "\e60e";
+}
+
+.icon-jiantouxia:before {
+  content: "\e61e";
+}
+
+.icon-movevertical:before {
+  content: "\e911";
+}
+
+.icon-jiantou:before {
+  content: "\e61f";
+}
+
+.icon-crop-rotate:before {
+  content: "\e6de";
+}
+
+.icon-remove:before {
+  content: "\e602";
+}
+
+.icon-move:before {
+  content: "\e620";
+}
+
+page {
+  width: 100%;
+  height: 100%;
+  background: url(https://wx3.sinaimg.cn/mw1024/69448882gy1fyjkxufex6j20dw08wjsm.jpg) center top;
+  background-size: contain;
+  background-color: #242424;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 10px 10px;
+  position: relative;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.iconfont {
+  display: block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.board {
+  background: url(https://wx3.sinaimg.cn/large/69448882gy1fyjkxufanyj200g00gmxa.jpg);
+  position: relative;
+}
+
+.zan {
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.zan view {
+  height: 80rpx;
+  line-height: 80rpx;
+ 
+  color: #fff;
+  font-size: 42rpx;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+}
+.btns {
+    margin: 20rpx -10rpx;
+    display: flex;
+}
+
+.btns button:first-child {
+    flex-basis: 60%;
+}
+
+.btns button:last-child {
+    flex-basis: 35%;
+    background: #13a113;
+    color: #fff;
+}

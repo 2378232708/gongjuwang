@@ -1,0 +1,86 @@
+<import src="../../components/evaluation-list/index.wxml"></import>
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title text-center">计算结果</view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-form-preview">
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">过期日期</view>
+                    <view class="weui-form-preview__value_in-hd {{classFlag==true?'dateBlack':'dateRed'}}">{{expireDate}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cells__title"></view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell ">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">生产日期</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker bindchange="bindDateChange" mode="date" value="{{date}}">
+                        <view class="weui-input">{{date}}</view>
+                    </picker>
+                </view>
+            </view>
+            <view class="weui-cell ">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">保质期(天数)</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input bindblur="calculatDate" class="weui-input" data-type="1" focus="true" placeholder="输入保质期(天数)" type="number" value="{{dateDays}}"></input>
+                </view>
+            </view>
+            <view class="weui-cell ">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">保质期(周数)</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input bindblur="calculatDate" class="weui-input" data-type="2" placeholder="输入保质期(周数)" type="number" value="{{dateWeeks}}"></input>
+                </view>
+            </view>
+            <view class="weui-cell ">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">保质期(月数)</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input bindblur="calculatDate" class="weui-input" data-type="3" placeholder="输入保质期(月数)" type="number" value="{{dateMonths}}"></input>
+                </view>
+            </view>
+            <view class="weui-cell ">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">保质期(年数)</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input bindblur="calculatDate" class="weui-input" data-type="4" placeholder="输入保质期(年数)" type="number" value="{{dateYears}}"></input>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cells__title text-center" hidden="{{wantList.length<=0}}">猜你想输入</view>
+        <view class="weui-cells weui-cells_after-title" hidden="{{wantList.length<=0}}">
+            <view class="weui-cell ">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">生产日期</view>
+                </view>
+                <view class="weui-cell__hd">
+                    <view class="weui-label">保质期</view>
+                </view>
+                <view class="weui-cell__hd">
+                    <view class="weui-label">过期日期</view>
+                </view>
+            </view>
+            <view bindtap="onclick" class="weui-cell {{index%2==0?'bg-g':''}}" data-value="{{item}}" wx:for="{{wantList}}" wx:key="index">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">{{item.inputDate}}</view>
+                </view>
+                <view class="weui-cell__hd">
+                    <view class="weui-label">{{item.intervalDay}}({{item.typeName}})</view>
+                </view>
+                <view class="weui-cell__hd">
+                    <view class="weui-label {{item.classFlag==true?'dateBlack':'dateRed'}}">{{item.produceDate}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

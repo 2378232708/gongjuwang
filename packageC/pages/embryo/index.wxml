@@ -1,0 +1,43 @@
+<view class="container">
+    <view class="section weeks">
+        <picker bindchange="bindWeeksPickerChange" range="{{weeks}}" value="{{weekIndex}}">
+            <view class="picker">
+                <view>
+					第
+					<text class="week">{{weeks[weekIndex]}}</text> 周
+				</view>
+            </view>
+        </picker>
+        <view class="tips">
+            <text>点击上方设置孕周</text>
+        </view>
+    </view>
+    <view class="section baby-weight">
+        <form bindreset="formReset" bindsubmit="formSubmit">
+            <view class="form-group field">
+                <view class="input">
+                    <text class="label">双顶径 BPD:</text>
+                    <input bindblur="setBodyData" class="input_c" confirmType="next" data-field-label="双顶径" data-field-name="bdp" id="bodyBDP" name="bodyBDP" placeholder="请输入(cm)" placeholderClass="placeholder" type="digit"></input>
+                </view>
+                <view class="refer">当周双顶径的参考值: {{currentRefer.bdp.start}} cm ~ {{currentRefer.bdp.end}} cm</view>
+            </view>
+            <view class="form-group field">
+                <view class="input">
+                    <text class="label">腹围 AC:</text>
+                    <input bindblur="setBodyData" class="input_c" confirmType="next" data-field-label="腹围" data-field-name="ac" id="bodyAC" name="bodyAC" placeholder="请输入(cm)" placeholderClass="placeholder" type="digit"></input>
+                </view>
+                <view class="refer">当周腹围的参考值: {{currentRefer.ac.start}} cm ~ {{currentRefer.ac.end}} cm</view>
+            </view>
+            <view class="form-group field">
+                <view class="input">
+                    <text class="label">股骨长 FL:</text>
+                    <input bindblur="setBodyData" class="input_c" confirmType="done" data-field-label="股骨长" data-field-name="fl" id="bodyFL" name="bodyFL" placeholder="请输入(cm)" placeholderClass="placeholder" type="digit"></input>
+                </view>
+                <view class="refer">当周股骨长的参考值: {{currentRefer.fl.start}} cm ~ {{currentRefer.fl.end}} cm</view>
+            </view>
+            <view class="form-group btn-area">
+                <button class="m-button" formType="submit">开始计算</button>
+            </view>
+        </form>
+    </view>
+</view>

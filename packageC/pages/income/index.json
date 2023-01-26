@@ -1,0 +1,14 @@
+{
+    "navigationBarBackgroundColor": "#5c7efc",
+    "navigationBarTitleText": "个税计算器工具",
+    "navigationStyle": "default",
+    "usingComponents": {
+        "van-field": "../../utils/dist/field/index",
+        "van-cell": "../../utils/dist/cell/index",
+        "van-cell-group": "../../utils/dist/cell-group/index",
+        "van-button": "../../utils/dist/button/index",
+        "van-popup": "../../utils/dist/popup/index",
+        "van-dialog": "../../utils/dist/dialog/index",
+        "cu-custom": "../../colorui/components/cu-custom"
+    }
+}

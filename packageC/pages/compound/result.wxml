@@ -1,0 +1,57 @@
+<view class="text-df cu-card px-3" style="padding-bottom:200rpx;">
+    <view class="p-5 bg-white rounded">
+        <view class="text-center">
+            <view class="text-xl">本息和</view>
+            <view class="text-green">
+                <text class="{{[isLong?'text-small':'text-sl']}}">{{m0}}</text>
+            </view>
+        </view>
+        <view class="text-lg mt-3 text-gray">
+            <view class="flex justify-between py-1">
+                <view>总利息</view>
+                <view>
+                    <text class="text-green">{{m1}}</text>
+                    <text>元</text>
+                </view>
+            </view>
+        </view>
+        <view class="text-lg mt-3 text-gray">
+            <view class="flex justify-between py-1">
+                <view>总本金</view>
+                <view>
+                    <text class="text-green">{{m2}}</text>
+                    <text>元</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view></view>
+    <view class="text-center">
+        <view class="text-xl">下面可以左右滑动查看详情</view>
+    </view>
+    <scroll-view scrollX="true" style="width:100%;margin-top: 20rpx">
+        <view class="text-center text-sm border radius" style="width:700px;">
+            <view class="py-2">
+                <view class="grid">
+                    <view style="width:100px;">{{'期数('+timeUnit+')'}}</view>
+                    <view style="width:100px;">本期投资</view>
+                    <view style="width:100px;">本期利息</view>
+                    <view style="width:100px;">累计投资</view>
+                    <view style="width:100px;">累计利息</view>
+                    <view style="width:100px;">累计本息和</view>
+                </view>
+            </view>
+            <view class="{{['py-1',index%2==0?'bg-gray light':'']}}" wx:for="{{fldata}}" wx:key="index">
+                <view class="grid">
+                    <view style="width:100px;">{{index+1}}</view>
+                    <view style="width:100px;">{{item.perDeposit}}</view>
+                    <view style="width:100px;">{{item.perInterest}}</view>
+                    <view style="width:100px;">{{item.totalPrincipal}}</view>
+                    <view style="width:100px;">{{item.totalInterest}}</view>
+                    <view style="width:100px;">{{item.current}}</view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+    <view class="fixed-bottom p-3" style="z-index:9999;background-color:#f7f7f7;"></view>
+</view>

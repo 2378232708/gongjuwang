@@ -1,0 +1,13 @@
+<view class="bg">
+  <view class="iconfont back" bindtap="back"></view>
+  <scroll-view scroll-y="true" class="tool flex" enable-flex="true">
+    <view class="tool-item" bindtap="goTool" wx:for="{{tools}}" wx:key="item" data-path='{{item.path}}' style="animation: moveIn {{index<=7?(index*0.1+0.5):0}}s;">
+      <image src="{{item.img}}"></image>
+      <view class="tool-text">
+        <view>{{item.name}}</view>
+        <text>{{item.title}}</text>
+      </view>
+      <view catchtap="coll" class="coll iconfont {{isColls[index]?'icon-shoucang2':'icon-shoucang1'}}" data-id="{{item.id}}"></view>
+    </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "个税结果",
+    "navigationBarBackgroundColor": "#6988ff",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "default",
+    "usingComponents": {
+        "cu-custom": "/colorui/components/cu-custom"
+    }
+}

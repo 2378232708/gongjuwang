@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "个税结果",
+    "navigationBarBackgroundColor": "#6988ff",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "default",
+    "usingComponents": {
+        "van-dialog": "../../utils/dist/dialog/index",
+        "cu-custom": "/colorui/components/cu-custom"
+    }
+}
